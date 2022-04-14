@@ -16,14 +16,7 @@ public class ClientController {
     public ClientVo getclient(Locale locale, @ModelAttribute ClientVo ClientVO) {
 //        ResponseVO responseVO = new ResponseVO();
         ClientVo ClientVo = new ClientVo();
-//        try {
-//            retrieveUserInfoAndValidate(ADOClientVO);
-//
-//            responseVO = ADOClientService.selectClient(ADOClientVO);
-//        } catch (Exception exception) {
-//            responseVO = new ResponseVO();
-//            ExceptionUtils.handleException(exception, this, responseVO, locale);
-//        }
+// push 확인
         return ClientVo;
     }
 }

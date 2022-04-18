@@ -16,7 +16,7 @@ public class ClientController {
     public ClientVo getclient(Locale locale, @ModelAttribute ClientVo ClientVO) {
 //        ResponseVO responseVO = new ResponseVO();
         ClientVo ClientVo = new ClientVo();
-// push 확인 2022-04-18
+// push 확인 personal laptop
         return ClientVo;
     }
 }

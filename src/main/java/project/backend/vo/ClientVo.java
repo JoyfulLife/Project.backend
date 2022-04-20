@@ -1,8 +1,9 @@
 package project.backend.vo;
 
 public class ClientVo {
-    private String userID = "조윤상";
-    private String passWord = "ABCDEFU";
+    private String userID = "";
+    private String passWord = "";
+    private String reconfirmPassWord = "";
 
     public String getUserID() {
         return userID;
@@ -15,5 +16,11 @@ public class ClientVo {
     }
     public void setPassWord(String passWord) {
         this.passWord = passWord;
+    }
+    public String getReconfirmPassWord() {
+        return reconfirmPassWord;
+    }
+    public void setReconfirmPassWord(String reconfirmPassWord) {
+        this.reconfirmPassWord = reconfirmPassWord;
     }
 }

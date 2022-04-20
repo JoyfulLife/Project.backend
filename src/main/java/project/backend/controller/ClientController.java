@@ -1,10 +1,7 @@
 package project.backend.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import project.backend.vo.ClientVo;
 
 import java.util.Locale;
@@ -17,6 +14,15 @@ public class ClientController {
 //        ResponseVO responseVO = new ResponseVO();
         ClientVo ClientVo = new ClientVo();
 // push 확인 personal laptop
+        return ClientVo;
+    }
+
+    @RequestMapping(value = "/ado/client/saveClient", method = RequestMethod.POST)
+    @ResponseBody
+    public ClientVo saveclient(Locale locale, @RequestBody ClientVo ClientVO) {
+
+        ClientVo ClientVo = new ClientVo();
+
         return ClientVo;
     }
 }

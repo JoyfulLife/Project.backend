@@ -1,7 +1,8 @@
 package project.backend.vo;
 
-public class ClientVo {
-    private String userID = "";
+@SuppressWarnings("unused")
+public class ClientVO {
+    private String userID = "wh";
     private String passWord = "";
     private String reconfirmPassWord = "";
     private String name = "";

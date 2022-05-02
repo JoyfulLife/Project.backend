@@ -1,28 +1,43 @@
 package project.backend.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import project.backend.vo.ClientVo;
+import project.backend.service.ClientService;
+import project.backend.vo.ClientVO;
+import project.backend.vo.ResponseVO;
 
 import java.util.Locale;
 
 @Controller
-public class ClientController {
+public class ClientController{
+
+    private final ClientService clientService;
+
+    @Autowired
+    public ClientController(ClientService clientService){
+        this.clientService = clientService;
+    }
+
     @RequestMapping(value = "/ado/client/clientInfo", method = RequestMethod.GET)
     @ResponseBody
-    public ClientVo getclient(Locale locale, @ModelAttribute ClientVo ClientVO) {
-//        ResponseVO responseVO = new ResponseVO();
-        ClientVo ClientVo = new ClientVo();
-// push 확인 personal laptop
-        return ClientVo;
+    public ResponseVO getclient(Locale locale, @ModelAttribute ClientVO ClientVO) {
+
+        ResponseVO responseVO = new ResponseVO();
+//        ClientVO clientVO = new ClientVO();
+
+        responseVO = clientService.selectClient(ClientVO);
+
+        return responseVO;
     }
 
     @RequestMapping(value = "/ado/client/saveClient", method = RequestMethod.POST)
     @ResponseBody
-    public ClientVo saveclient(Locale locale, @RequestBody ClientVo ClientVO) {
+    public ClientVO saveclient(Locale locale, @RequestBody ClientVO clientVO) {
 
-        ClientVo ClientVo = new ClientVo();
+        ClientVO ClientVO = new ClientVO();
 
-        return ClientVo;
+        return ClientVO;
     }
 }

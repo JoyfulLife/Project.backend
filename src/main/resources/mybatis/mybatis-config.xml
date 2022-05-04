@@ -4,5 +4,6 @@
 <configuration>
     <mappers>
         <mapper resource="ClientMapper.xml"/>
+        <mapper resource="TableMapper.xml"/>
     </mappers>
 </configuration>

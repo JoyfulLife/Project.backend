@@ -6,7 +6,30 @@
 <mapper namespace="project.backend.dao.ClientMapper">
 
     <select id="getAllDataList" resultType="project.backend.vo.ClientVO">
-        select name from project.client_m
+        select
+            name
+        from project.client_m
     </select>
+
+    <insert id="insertClient">
+        insert into project.client_m (
+            USER_ID,
+            PASSWORD,
+            RECPASSWORD,
+            name,
+            PHONE_NO,
+            CREATE_DATE,
+            GENDER
+        )
+        values (
+            #{userID},
+            #{passWord},
+            #{reconfirmPassWord},
+            #{name},
+            #{phoneNumber},
+            now(),
+            #{gender}
+            )
+    </insert>
 
 </mapper>

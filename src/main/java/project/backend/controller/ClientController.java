@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import project.backend.service.ClientService;
 import project.backend.vo.ClientVO;
 import project.backend.vo.ResponseVO;
+import project.backend.vo.SignUpVO;
 
 import java.util.List;
 import java.util.Locale;
@@ -24,46 +25,18 @@ public class ClientController{
     @ResponseBody
     public List<ClientVO> getclient(Locale locale, @ModelAttribute ClientVO ClientVO) {
 
-//        ResponseVO responseVO = new ResponseVO();
-//        ClientVO clientVO = new ClientVO();
-
         List<ClientVO> clientVO = clientService.getAllDataList();
 
         return clientVO;
     }
 
+
     @RequestMapping(value = "/ado/client/saveClient", method = RequestMethod.POST)
     @ResponseBody
-    public ClientVO saveclient(Locale locale, @RequestBody ClientVO clientVO) {
+    public void saveclient(Locale locale, @RequestBody SignUpVO signUpVO) {
 
-        ClientVO ClientVO = new ClientVO();
+        clientService.insertClient(signUpVO);
 
-        return ClientVO;
     }
-
-//    @RequestMapping(value = "/ado/client/clientInfo", method = RequestMethod.GET)
-//    @ResponseBody
-//    public ResponseVO getclient(Locale locale, @ModelAttribute ClientVO ClientVO) {
-//
-//        ResponseVO responseVO = new ResponseVO();
-////        ClientVO clientVO = new ClientVO();
-//
-//        responseVO = clientService.selectClient(ClientVO);
-//
-//        return responseVO;
-//    }
-
-
-//    @RequestMapping(value = "/ado/client/clientInfo", method = RequestMethod.GET)
-//    @ResponseBody
-//    public List<portfolio> getclient(Locale locale, @ModelAttribute ClientVO ClientVO) {
-//
-//        ResponseVO responseVO = new ResponseVO();
-////        ClientVO clientVO = new ClientVO();
-//
-//        List<portfolio> portfolio = testService.getAllDataList();
-//
-//        return portfolio;
-//    }
 
 }

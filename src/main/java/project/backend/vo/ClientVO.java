@@ -2,19 +2,20 @@ package project.backend.vo;
 
 
 public class ClientVO {
+
     private String name;
-    private String idx = "123123";
+    private String idx;
     private String start_date222;
     private String deadline333;
     private String header555;
     private String description666;
     private String image_path777;
 
-    public String getAge() {
+    public String getName() {
         return name;
     }
 
-    public void setAge(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -65,52 +66,5 @@ public class ClientVO {
     public void setImage_path777(String image_path777) {
         this.image_path777 = image_path777;
     }
-//    private String userID = "wh";
-//    private String passWord = "";
-//    private String reconfirmPassWord = "";
-////    private String name = "";
-//    private String phoneNumber = "";
-//    private String gender = "";
-//
-//    public String getUserID() {
-//        return userID;
-//    }
-//    public void setUserID(String userID) {
-//        this.userID = userID;
-//    }
-//    public String getPassWord() {
-//        return passWord;
-//    }
-//    public void setPassWord(String passWord) {
-//        this.passWord = passWord;
-//    }
-//    public String getReconfirmPassWord() {
-//        return reconfirmPassWord;
-//    }
-//    public void setReconfirmPassWord(String reconfirmPassWord) {
-//        this.reconfirmPassWord = reconfirmPassWord;
-//    }
-////    public String getName() {
-////        return name;
-////    }
-////
-////    public void setName(String name) {
-////        this.name = name;
-////    }
-//
-//    public String getPhoneNumber() {
-//        return phoneNumber;
-//    }
-//
-//    public void setPhoneNumber(String phoneNumber) {
-//        this.phoneNumber = phoneNumber;
-//    }
-//
-//    public String getGender() {
-//        return gender;
-//    }
-//
-//    public void setGender(String gender) {
-//        this.gender = gender;
-//    }
+
 }

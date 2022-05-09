@@ -1,30 +1,43 @@
 package project.backend.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import project.backend.vo.ClientVo;
+import org.springframework.web.bind.annotation.*;
 
+import project.backend.service.ClientService;
+import project.backend.vo.ClientVO;
+import project.backend.vo.ResponseVO;
+import project.backend.vo.SignUpVO;
+
+import java.util.List;
 import java.util.Locale;
 
 @Controller
-public class ClientController {
+public class ClientController{
+    private final ClientService clientService;
+
+    @Autowired
+    public ClientController(ClientService clientService){
+        this.clientService = clientService;
+    }
+
     @RequestMapping(value = "/ado/client/clientInfo", method = RequestMethod.GET)
     @ResponseBody
-    public ClientVo getclient(Locale locale, @ModelAttribute ClientVo ClientVO) {
-//        ResponseVO responseVO = new ResponseVO();
-        ClientVo ClientVo = new ClientVo();
-//        try {
-//            retrieveUserInfoAndValidate(ADOClientVO);
-//
-//            responseVO = ADOClientService.selectClient(ADOClientVO);
-//        } catch (Exception exception) {
-//            responseVO = new ResponseVO();
-//            ExceptionUtils.handleException(exception, this, responseVO, locale);
-//        }
-        return ClientVo;
+    public List<ClientVO> getclient(Locale locale, @ModelAttribute ClientVO ClientVO) {
+
+        List<ClientVO> clientVO = clientService.getAllDataList();
+
+        return clientVO;
     }
+
+
+    @RequestMapping(value = "/ado/client/saveClient", method = RequestMethod.POST)
+    @ResponseBody
+    public void saveclient(Locale locale, @RequestBody SignUpVO signUpVO) {
+
+        clientService.insertClient(signUpVO);
+
+    }
+
 }
-//github test 002
+//github test 001

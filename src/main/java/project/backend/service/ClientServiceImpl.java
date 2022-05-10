@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import project.backend.dao.ClientMapper;
 import project.backend.vo.ClientVO;
+import project.backend.vo.ResponseVO;
 import project.backend.vo.SignUpVO;
 
 import java.util.List;
@@ -18,11 +19,14 @@ public class ClientServiceImpl implements ClientService{
         this.clientMapper = clientMapper;
     }
 
+//    @Override
+//    public List<ClientVO> getAllDataList() {
+//        return clientMapper.getAllDataList();
+//    }
     @Override
-    public List<ClientVO> getAllDataList() {
-        return clientMapper.getAllDataList();
+    public ClientVO selectValidClient(ClientVO clientVO) {
+        return clientMapper.selectValidClient(clientVO);
     }
-
     @Override
 //    @Transactional(transactionManager = "txMgr", readOnly = true)
     public void insertClient(SignUpVO signUpVO) {

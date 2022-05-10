@@ -10,7 +10,9 @@ import project.backend.vo.SignUpVO;
 import java.util.List;
 
 public interface ClientService {
-    public List<ClientVO> getAllDataList();
+//    public List<ClientVO> getAllDataList();
+
+    public ClientVO selectValidClient(ClientVO clientVO);
 
     public void insertClient(SignUpVO signUpVO);
 

@@ -21,15 +21,14 @@ public class ClientController{
         this.clientService = clientService;
     }
 
-    @RequestMapping(value = "/ado/client/clientInfo", method = RequestMethod.GET)
+    @RequestMapping(value = "/ado/client/clientInfo", method = RequestMethod.POST)
     @ResponseBody
-    public List<ClientVO> getclient(Locale locale, @ModelAttribute ClientVO ClientVO) {
+    public ClientVO validclient(Locale locale, @RequestBody ClientVO ClientVO) {
 
-        List<ClientVO> clientVO = clientService.getAllDataList();
+        ClientVO clientVO = clientService.selectValidClient(ClientVO);
 
         return clientVO;
     }
-
 
     @RequestMapping(value = "/ado/client/saveClient", method = RequestMethod.POST)
     @ResponseBody
@@ -39,5 +38,14 @@ public class ClientController{
 
     }
 
+//    //get 으로 받을거면 @ModelAttribute
+//    @RequestMapping(value = "/ado/client/clientInfo", method = RequestMethod.GET)
+//    @ResponseBody
+//    public List<ClientVO> getclient(Locale locale, @ModelAttribute ClientVO ClientVO) {
+//
+//        List<ClientVO> clientVO = clientService.getAllDataList();
+//
+//        return clientVO;
+//    }
 }
 //master branch push test 001 집 노트북 push 확인!!!!!

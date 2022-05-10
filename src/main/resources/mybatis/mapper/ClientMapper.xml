@@ -5,10 +5,19 @@
 
 <mapper namespace="project.backend.dao.ClientMapper">
 
-    <select id="getAllDataList" resultType="project.backend.vo.ClientVO">
-        select
-            name
-        from project.client_m
+<!--    <select id="getAllDataList" resultType="project.backend.vo.ClientVO">-->
+<!--        select-->
+<!--            name-->
+<!--        from project.client_m-->
+<!--    </select>-->
+
+    <select id="selectValidClient" resultType="project.backend.vo.ClientVO">
+#         select exists(
+            select USER_ID, PASSWORD, name
+            from project.client_m
+            where USER_ID = #{user_ID} and
+                  PASSWORD = #{PassWord}
+#                    )
     </select>
 
     <insert id="insertClient">

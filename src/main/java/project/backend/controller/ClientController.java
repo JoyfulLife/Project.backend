@@ -25,6 +25,7 @@ public class ClientController{
     @ResponseBody
     public ClientVO validclient(Locale locale, @RequestBody ClientVO ClientVO) {
 
+        //로그인할때 등록된 인원인지 확인
         ClientVO clientVO = clientService.selectValidClient(ClientVO);
 
         return clientVO;
@@ -34,9 +35,17 @@ public class ClientController{
     @ResponseBody
     public void saveclient(Locale locale, @RequestBody SignUpVO signUpVO) {
 
+        //회원가입시 이미 등록된 User_ID가 있는지 확인!
+        clientService.DeduplicationUser_ID(signUpVO);
+
         clientService.insertClient(signUpVO);
 
     }
+}
+
+
+
+
 
 //    //get 으로 받을거면 @ModelAttribute
 //    @RequestMapping(value = "/ado/client/clientInfo", method = RequestMethod.GET)
@@ -47,5 +56,4 @@ public class ClientController{
 //
 //        return clientVO;
 //    }
-}
 //master branch push test 001 집 노트북 push 확인!!!!!

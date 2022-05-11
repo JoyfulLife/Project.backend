@@ -16,4 +16,6 @@ public interface ClientService {
 
     public void insertClient(SignUpVO signUpVO);
 
+    public int DeduplicationUser_ID(SignUpVO signUpVO);
+
 }

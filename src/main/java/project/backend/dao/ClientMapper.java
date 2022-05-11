@@ -16,4 +16,6 @@ public interface ClientMapper {
     ClientVO selectValidClient(ClientVO clientVO);
 
     void insertClient(SignUpVO signUpVO);
+
+    int DeduplicationUser_ID(SignUpVO signUpVO);
 }

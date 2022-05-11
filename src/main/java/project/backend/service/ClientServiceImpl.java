@@ -32,4 +32,17 @@ public class ClientServiceImpl implements ClientService{
     public void insertClient(SignUpVO signUpVO) {
         clientMapper.insertClient(signUpVO);
     }
+    @Override
+    public int DeduplicationUser_ID(SignUpVO signUpVO) {
+        //회원가입시 이미 등록된 User_ID가 있는지 확인!
+
+            int DeduplicationUser_ID = clientMapper.DeduplicationUser_ID(signUpVO);
+
+            if (DeduplicationUser_ID == 1) {
+                clientMapper.DeduplicationUser_ID(signUpVO);
+            }
+
+        return clientMapper.DeduplicationUser_ID(signUpVO);
+    }
+
 }

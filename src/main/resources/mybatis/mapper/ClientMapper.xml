@@ -31,7 +31,7 @@
             GENDER
         )
         values (
-            #{userID},
+            #{user_ID},
             #{passWord},
             #{reconfirmPassWord},
             #{name},
@@ -40,5 +40,11 @@
             #{gender}
             )
     </insert>
+
+    <select id="DeduplicationUser_ID" resultType="_int">
+        select count(*)
+        from project.client_m
+        where USER_ID = #{user_ID}
+    </select>
 
 </mapper>

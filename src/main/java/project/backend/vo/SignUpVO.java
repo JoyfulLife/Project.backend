@@ -2,7 +2,7 @@ package project.backend.vo;
 
 public class SignUpVO {
 
-    private String userID;
+    private String user_ID;
     private String passWord;
     private String reconfirmPassWord;
     private String name;
@@ -10,12 +10,12 @@ public class SignUpVO {
     private String gender;
 
 
-    public String getUserID() {
-        return userID;
+    public String getUser_ID() {
+        return user_ID;
     }
 
-    public void setUserID(String userID) {
-        this.userID = userID;
+    public void setUser_ID(String user_ID) {
+        this.user_ID = user_ID;
     }
 
     public String getPassWord() {

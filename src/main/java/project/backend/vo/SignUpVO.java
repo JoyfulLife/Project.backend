@@ -8,6 +8,7 @@ public class SignUpVO {
     private String name;
     private String phoneNumber;
     private String gender;
+    private String message;
 
 
     public String getUser_ID() {
@@ -56,5 +57,13 @@ public class SignUpVO {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

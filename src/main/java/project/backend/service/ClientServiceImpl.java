@@ -3,6 +3,9 @@ package project.backend.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.Errors;
+import org.springframework.validation.ValidationUtils;
+import org.springframework.validation.Validator;
 import project.backend.dao.ClientMapper;
 import project.backend.vo.ClientVO;
 import project.backend.vo.ResponseVO;
@@ -11,7 +14,7 @@ import project.backend.vo.SignUpVO;
 import java.util.List;
 
 @Service
-public class ClientServiceImpl implements ClientService{
+public class ClientServiceImpl implements ClientService {
     private final ClientMapper clientMapper;
 
     @Autowired
@@ -19,16 +22,15 @@ public class ClientServiceImpl implements ClientService{
         this.clientMapper = clientMapper;
     }
 
-//    @Override
-//    public List<ClientVO> getAllDataList() {
-//        return clientMapper.getAllDataList();
-//    }
+
     @Override
     public ClientVO selectValidClient(ClientVO clientVO) {
         return clientMapper.selectValidClient(clientVO);
     }
+
+
+    //TODO 2022-05-12 insertClient, DeduplicationUser_ID 합치기!!!
     @Override
-//    @Transactional(transactionManager = "txMgr", readOnly = true)
     public void insertClient(SignUpVO signUpVO) {
         clientMapper.insertClient(signUpVO);
     }
@@ -38,8 +40,8 @@ public class ClientServiceImpl implements ClientService{
 
             int DeduplicationUser_ID = clientMapper.DeduplicationUser_ID(signUpVO);
 
-            if (DeduplicationUser_ID == 1) {
-                clientMapper.DeduplicationUser_ID(signUpVO);
+            if (DeduplicationUser_ID >= 1) {
+                signUpVO.setMessage("잘못된 정보입니다.");
             }
 
         return clientMapper.DeduplicationUser_ID(signUpVO);

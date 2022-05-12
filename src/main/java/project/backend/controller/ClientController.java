@@ -33,12 +33,15 @@ public class ClientController{
 
     @RequestMapping(value = "/ado/client/saveClient", method = RequestMethod.POST)
     @ResponseBody
-    public void saveclient(Locale locale, @RequestBody SignUpVO signUpVO) {
+    public SignUpVO saveclient(Locale locale, @RequestBody SignUpVO signUpVO) {
 
+//        SignUpVO returnSignUpVO = new SignUpVO();
         //회원가입시 이미 등록된 User_ID가 있는지 확인!
         clientService.DeduplicationUser_ID(signUpVO);
 
-        clientService.insertClient(signUpVO);
+//        clientService.insertClient(signUpVO);
+
+        return signUpVO;
 
     }
 }

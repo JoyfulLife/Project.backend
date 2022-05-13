@@ -8,7 +8,8 @@ public class SignUpVO {
     private String name;
     private String phoneNumber;
     private String gender;
-    private String message;
+    private String SuccessMessage;
+    private String failMessage;
 
 
     public String getUser_ID() {
@@ -59,11 +60,19 @@ public class SignUpVO {
         this.gender = gender;
     }
 
-    public String getMessage() {
-        return message;
+    public String getSuccessMessage() {
+        return SuccessMessage;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setSuccessMessage(String successMessage) {
+        SuccessMessage = successMessage;
+    }
+
+    public String getFailMessage() {
+        return failMessage;
+    }
+
+    public void setFailMessage(String failMessage) {
+        this.failMessage = failMessage;
     }
 }

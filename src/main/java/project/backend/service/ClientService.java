@@ -14,7 +14,7 @@ public interface ClientService {
 
     public ClientVO selectValidClient(ClientVO clientVO);
 
-    public void insertClient(SignUpVO signUpVO);
+//    public void insertClient(SignUpVO signUpVO);
 
     public int DeduplicationUser_ID(SignUpVO signUpVO);
 

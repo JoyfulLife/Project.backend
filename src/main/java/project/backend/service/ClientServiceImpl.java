@@ -29,20 +29,24 @@ public class ClientServiceImpl implements ClientService {
     }
 
 
-    //TODO 2022-05-12 insertClient, DeduplicationUser_ID 합치기!!!
-    @Override
-    public void insertClient(SignUpVO signUpVO) {
-        clientMapper.insertClient(signUpVO);
-    }
+
+//    @Override
+//    public void insertClient(SignUpVO signUpVO) {
+//        clientMapper.insertClient(signUpVO);
+//    }
     @Override
     public int DeduplicationUser_ID(SignUpVO signUpVO) {
+
         //회원가입시 이미 등록된 User_ID가 있는지 확인!
 
-            int DeduplicationUser_ID = clientMapper.DeduplicationUser_ID(signUpVO);
+        int DeduplicationUser_ID = clientMapper.DeduplicationUser_ID(signUpVO);
 
-            if (DeduplicationUser_ID >= 1) {
-                signUpVO.setMessage("잘못된 정보입니다.");
-            }
+        if (DeduplicationUser_ID >= 1) {
+            signUpVO.setFailMessage("중복된 User_ID입니다.");
+        }else {
+            signUpVO.setSuccessMessage("회원가입 성공!");
+            clientMapper.insertClient(signUpVO);
+        }
 
         return clientMapper.DeduplicationUser_ID(signUpVO);
     }

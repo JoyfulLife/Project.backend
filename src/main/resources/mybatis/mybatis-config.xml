@@ -5,5 +5,6 @@
     <mappers>
         <mapper resource="ClientMapper.xml"/>
         <mapper resource="TableMapper.xml"/>
+        <mapper resource="AdvertisingMapper.xml"/>
     </mappers>
 </configuration>

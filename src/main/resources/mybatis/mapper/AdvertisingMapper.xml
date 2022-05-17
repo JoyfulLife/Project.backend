@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="project.backend.dao.AdvertisingMapper">
+
+    <select id="selectAdvertisingList" resultType="project.backend.vo.AdvertisingVO">
+        select *
+        from project.advertising_m
+        where CATEGORY = #{category}
+    </select>
+
+</mapper>

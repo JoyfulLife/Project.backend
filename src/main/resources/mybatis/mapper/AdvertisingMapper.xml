@@ -8,6 +8,15 @@
     <select id="selectAdvertisingList" resultType="project.backend.vo.AdvertisingVO">
         select *
         from project.advertising_m
+            <if test="category != null and category != ''">
+                where
+                CATEGORY = #{category}
+            </if>
+    </select>
+
+    <select id="countAdvertisingList" resultType="_int">
+        select count(*)
+        from project.advertising_m
         where CATEGORY = #{category}
     </select>
 

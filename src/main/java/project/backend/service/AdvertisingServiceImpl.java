@@ -5,7 +5,9 @@ import org.springframework.stereotype.Service;
 import project.backend.dao.AdvertisingMapper;
 import project.backend.vo.AdvertisingVO;
 import project.backend.vo.ClientVO;
+import project.backend.vo.ResponseVO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -19,6 +21,12 @@ public class AdvertisingServiceImpl implements AdvertisingService{
 
     @Override
     public List<AdvertisingVO> selectAdvertisingList(AdvertisingVO advertisingVO) {
+
+
+        int ListCount = advertisingMapper.countAdvertisingList(advertisingVO);
+        advertisingVO.setSports_count(advertisingMapper.countAdvertisingList(advertisingVO));
+
+
         return advertisingMapper.selectAdvertisingList(advertisingVO);
     }
 }

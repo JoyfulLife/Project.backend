@@ -10,5 +10,8 @@ import java.util.List;
 @Repository
 @Mapper
 public interface AdvertisingMapper {
+
     List<AdvertisingVO> selectAdvertisingList(AdvertisingVO advertisingVO);
+
+    int countAdvertisingList(AdvertisingVO advertisingVO);
 }

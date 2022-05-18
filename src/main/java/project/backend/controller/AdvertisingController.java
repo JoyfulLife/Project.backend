@@ -25,10 +25,9 @@ public class AdvertisingController {
     @ResponseBody
     public List<AdvertisingVO> getAdvertisingList(Locale locale, @RequestBody AdvertisingVO advertisingVO) {
 
+        List<AdvertisingVO> res = advertisingService.selectAdvertisingList(advertisingVO);
 
-        List<AdvertisingVO> advertisingVO1 = advertisingService.selectAdvertisingList(advertisingVO);
-
-        return advertisingVO1;
+        return res;
     }
 
 }

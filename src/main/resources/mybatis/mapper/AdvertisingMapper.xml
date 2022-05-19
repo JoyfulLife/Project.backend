@@ -14,10 +14,12 @@
             </if>
     </select>
 
-    <select id="countAdvertisingList" resultType="_int">
+    <select id="categoryCount" resultType="_int">
         select count(*)
         from project.advertising_m
-        where CATEGORY = #{category}
+        where
+            CATEGORY = #{category}
     </select>
+
 
 </mapper>

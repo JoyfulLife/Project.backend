@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 import project.backend.vo.AdvertisingVO;
 import project.backend.vo.ClientVO;
+import project.backend.vo.CountAdvertisingVO;
 
 import java.util.List;
 
@@ -13,5 +14,7 @@ public interface AdvertisingMapper {
 
     List<AdvertisingVO> selectAdvertisingList(AdvertisingVO advertisingVO);
 
-    int countAdvertisingList(AdvertisingVO advertisingVO);
+    int categoryCount(CountAdvertisingVO countAdvertisingVO);
+
+
 }

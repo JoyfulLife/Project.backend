@@ -3,9 +3,18 @@ package project.backend.vo;
 public class CountAdvertisingVO {
 
     private String category;
+    private int all_count;
     private int sports_count;
     private int news_count;
     private int webtoon_count;
+
+    public int getAll_count() {
+        return all_count;
+    }
+
+    public void setAll_count(int all_count) {
+        this.all_count = all_count;
+    }
 
     public String getCategory() {
         return category;

@@ -35,13 +35,16 @@ public class AdvertisingServiceImpl implements AdvertisingService{
         CountAdvertisingVO advertisingVO = new CountAdvertisingVO();
 
         //  카테고리별 count 개수를 select 한다!
+        countAdvertisingVO.setCategory("All");
+        int allCount = advertisingMapper.categoryCount(countAdvertisingVO);
         countAdvertisingVO.setCategory("Sports");
         int sportsCount = advertisingMapper.categoryCount(countAdvertisingVO);
         countAdvertisingVO.setCategory("News");
         int newsCount = advertisingMapper.categoryCount(countAdvertisingVO);
         countAdvertisingVO.setCategory("Web toon");
-        int webtoonCount = advertisingMapper.categoryCount(advertisingVO);
+        int webtoonCount = advertisingMapper.categoryCount(countAdvertisingVO);
 
+        advertisingVO.setAll_count(allCount);
         advertisingVO.setSports_count(sportsCount);
         advertisingVO.setNews_count(newsCount);
         advertisingVO.setWebtoon_count(webtoonCount);

@@ -8,7 +8,7 @@
     <select id="selectAdvertisingList" resultType="project.backend.vo.AdvertisingVO">
         select *
         from project.advertising_m
-            <if test="category != null and category != ''">
+            <if test="category != null and category != '' and category != 'All' ">
                 where
                 CATEGORY = #{category}
             </if>
@@ -17,8 +17,11 @@
     <select id="categoryCount" resultType="_int">
         select count(*)
         from project.advertising_m
-        where
-            CATEGORY = #{category}
+            <if test="category != 'All' ">
+                where
+                CATEGORY = #{category}
+            </if>
+
     </select>
 
 

@@ -6,6 +6,7 @@ public class ClientVO {
     private String User_ID;
     private String PassWord;
     private String name;
+    private String LoginStatus;
 
     public String getUser_ID() {
         return User_ID;
@@ -30,4 +31,13 @@ public class ClientVO {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getLoginStatus() {
+        return LoginStatus;
+    }
+
+    public void setLoginStatus(String loginStatus) {
+        LoginStatus = loginStatus;
+    }
+
 }

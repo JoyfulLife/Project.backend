@@ -25,7 +25,18 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public ClientVO selectValidClient(ClientVO clientVO) {
-        return clientMapper.selectValidClient(clientVO);
+
+        ClientVO res = clientMapper.selectValidClient(clientVO);
+
+        // 로그인에 성공하면 로그인 상태를 Yes로 한다.
+        if(res == null){
+            System.out.println("null~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+//            res.setLoginStatus("No");
+        }else {
+            res.setLoginStatus("Yes");
+        }
+
+        return res;
     }
 
 

@@ -9,6 +9,7 @@ public class AdvertisingVO {
     private String url;
     private String brand_name;
     private String image;
+    private String remarks;
 
     public String getAd_no() {
         return ad_no;
@@ -64,5 +65,13 @@ public class AdvertisingVO {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
     }
 }

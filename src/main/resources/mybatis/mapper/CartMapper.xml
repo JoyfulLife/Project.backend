@@ -26,7 +26,13 @@
         );
     </insert>
 
-    <select id="getCartList" resultType="project.backend.vo.AdvertisingVO">
-        select * from project.cart_m
+    <select id="getCartList" resultType="project.backend.vo.ClientVO">
+        select *
+        from project.cart_m
+    </select>
+
+    <select id="cart_Count" resultType="_int">
+        select count(*)
+        from project.cart_m
     </select>
 </mapper>

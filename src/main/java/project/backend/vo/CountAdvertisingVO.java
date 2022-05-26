@@ -7,6 +7,7 @@ public class CountAdvertisingVO {
     private int sports_count;
     private int news_count;
     private int webtoon_count;
+    private int cart_count;
 
     public int getAll_count() {
         return all_count;
@@ -48,5 +49,11 @@ public class CountAdvertisingVO {
         this.webtoon_count = webtoon_count;
     }
 
+    public int getCart_count() {
+        return cart_count;
+    }
 
+    public void setCart_count(int cart_count) {
+        this.cart_count = cart_count;
+    }
 }

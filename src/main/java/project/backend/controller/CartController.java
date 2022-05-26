@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import project.backend.service.CartService;
 import project.backend.vo.AdvertisingVO;
+import project.backend.vo.ClientVO;
 import project.backend.vo.TableVO;
 
 import java.util.List;
@@ -23,7 +24,7 @@ public class CartController {
         this.cartService = cartService;
     }
 
-    @RequestMapping(value = "/cart", method = RequestMethod.POST)
+    @RequestMapping(value = "/cart/insertCart", method = RequestMethod.POST)
     @ResponseBody
     public void insertCart(Locale locale, @RequestBody AdvertisingVO advertisingVO) {
 
@@ -31,11 +32,11 @@ public class CartController {
 
     }
 
-    @RequestMapping(value = "/cartList", method = RequestMethod.GET)
+    @RequestMapping(value = "/cart/cartList", method = RequestMethod.POST)
     @ResponseBody
-    public List<AdvertisingVO> getCartList11(){
-        List<AdvertisingVO> advertisingVO = cartService.getCartList();
+    public List<AdvertisingVO> getCartList(Locale locale, @RequestBody ClientVO clientVO){
+        List<AdvertisingVO> res = cartService.getCartList(clientVO);
 
-        return advertisingVO;
+        return res;
     }
 }

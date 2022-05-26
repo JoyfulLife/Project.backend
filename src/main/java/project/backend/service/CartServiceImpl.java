@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.backend.dao.CartMapper;
 import project.backend.vo.AdvertisingVO;
+import project.backend.vo.ClientVO;
 import project.backend.vo.TableVO;
 
 
@@ -26,7 +27,15 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public List<AdvertisingVO> getCartList() {
-        return cartMapper.getCartList();
+    public List<AdvertisingVO> getCartList(ClientVO clientVO) {
+
+        List<AdvertisingVO> res = cartMapper.getCartList(clientVO);
+
+//        int aaa = cartMapper.cart_Count(clientVO);
+//
+//        res.
+
+
+        return res;
     }
 }

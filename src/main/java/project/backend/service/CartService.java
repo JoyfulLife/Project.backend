@@ -1,6 +1,7 @@
 package project.backend.service;
 
 import project.backend.vo.AdvertisingVO;
+import project.backend.vo.ClientVO;
 import project.backend.vo.TableVO;
 
 
@@ -10,5 +11,5 @@ public interface CartService {
 
     public void insertCart(AdvertisingVO advertisingVO);
 
-    public List<AdvertisingVO> getCartList();
+    public List<AdvertisingVO> getCartList(ClientVO clientVO);
 }

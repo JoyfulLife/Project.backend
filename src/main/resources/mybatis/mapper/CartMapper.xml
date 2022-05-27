@@ -26,9 +26,10 @@
         );
     </insert>
 
-    <select id="getCartList" resultType="project.backend.vo.ClientVO">
+    <select id="getCartList" resultType="project.backend.vo.CartVO">
         select *
         from project.cart_m
+        limit #{limit_st}, #{limit}
     </select>
 
     <select id="cart_Count" resultType="_int">

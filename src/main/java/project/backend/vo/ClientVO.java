@@ -1,7 +1,7 @@
 package project.backend.vo;
 
 
-public class ClientVO extends AdvertisingVO{
+public class ClientVO{
 
     private String User_ID;
     private String PassWord;

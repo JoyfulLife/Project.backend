@@ -1,6 +1,8 @@
 package project.backend.vo;
 
-public class AdvertisingVO extends CountAdvertisingVO{
+import java.util.List;
+
+public class AdvertisingVO{
 
     private String ad_no;
     private String category;

@@ -2,10 +2,7 @@ package project.backend.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
-import project.backend.vo.AdvertisingVO;
-import project.backend.vo.ClientVO;
-import project.backend.vo.CountAdvertisingVO;
-import project.backend.vo.TableVO;
+import project.backend.vo.*;
 
 
 import java.util.List;
@@ -15,7 +12,7 @@ import java.util.List;
 public interface CartMapper {
     public void insertCart(AdvertisingVO advertisingVO);
 
-    List<AdvertisingVO> getCartList(ClientVO clientVO);
+    List<AdvertisingVO> getCartList(CartVO cartVO);
 
     int cart_Count(CountAdvertisingVO countAdvertisingVO);
 }

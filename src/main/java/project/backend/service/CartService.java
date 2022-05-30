@@ -11,5 +11,5 @@ public interface CartService {
 
     public void insertCart(AdvertisingVO advertisingVO);
 
-    public List<AdvertisingVO> getCartList(CartVO cartVO);
+    public List<CartVO> getCartList(CartVO cartVO);
 }

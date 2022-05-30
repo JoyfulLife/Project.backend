@@ -2,6 +2,7 @@ package project.backend.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import project.backend.dao.CartMapper;
 import project.backend.vo.AdvertisingVO;
 import project.backend.vo.CartVO;
@@ -18,6 +19,7 @@ public class CartServiceImpl implements CartService {
         this.cartMapper = cartMapper;
     }
 
+    @Transactional
     @Override
     public void insertCart(AdvertisingVO advertisingVO) {
 
@@ -26,13 +28,15 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public List<AdvertisingVO> getCartList(CartVO cartVO) {
+    public List<CartVO> getCartList(CartVO cartVO) {
 
-        List<AdvertisingVO> res = cartMapper.getCartList(cartVO);
+        List<CartVO> res = cartMapper.getCartList(cartVO);
 
-//        int cartCount = cartMapper.cart_Count(cartVO);
+        //TODO cart_count !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        int cartCount = cartMapper.cart_Count(cartVO);
 
         return res;
     }
+
 
 }

@@ -34,8 +34,8 @@ public class CartController {
 
     @RequestMapping(value = "/cart/cartList", method = RequestMethod.POST)
     @ResponseBody
-    public List<AdvertisingVO> getCartList(Locale locale, @RequestBody CartVO cartVO){
-        List<AdvertisingVO> res = cartService.getCartList(cartVO);
+    public List<CartVO> getCartList(Locale locale, @RequestBody CartVO cartVO){
+        List<CartVO> res = cartService.getCartList(cartVO);
 
         return res;
     }

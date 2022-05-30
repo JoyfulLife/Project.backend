@@ -1,10 +1,11 @@
 package project.backend.vo;
 
-public class CartVO extends AdvertisingVO{
+public class CartVO {
 
     private int page;
     private int limit;
     private int limit_st;
+    private int cart_count;
 
     public int getPage() {
         return page;
@@ -30,4 +31,11 @@ public class CartVO extends AdvertisingVO{
         this.limit_st = limit_st;
     }
 
+    public int getCart_count() {
+        return cart_count;
+    }
+
+    public void setCart_count(int cart_count) {
+        this.cart_count = cart_count;
+    }
 }

@@ -14,7 +14,7 @@
     <select id="selectValidClient" resultType="project.backend.vo.ClientVO">
 #         select exists(
             select USER_ID, PASSWORD, name
-            from project.client_m
+            from project.client_mfewf
             where USER_ID = #{user_ID} and
                   PASSWORD = #{PassWord}
 #                    )
@@ -43,7 +43,7 @@
 
     <select id="DeduplicationUser_ID" resultType="_int">
         select count(*)
-        from project.client_m
+        from project.client_mㅍㄴㅇ
         where USER_ID = #{user_ID}
     </select>
 

@@ -12,7 +12,7 @@ import java.util.List;
 public interface CartMapper {
     public void insertCart(AdvertisingVO advertisingVO);
 
-    List<AdvertisingVO> getCartList(CartVO cartVO);
+    List<CartVO> getCartList(CartVO cartVO);
 
-    int cart_Count(CountAdvertisingVO countAdvertisingVO);
+    int cart_Count(CartVO cartVO);
 }

@@ -25,23 +25,22 @@ public class ClientServiceImpl implements ClientService {
 
 
     @Override
-    public ClientVO selectValidClient(ClientVO clientVO) throws ExceptionUtils{
+    public ClientVO selectValidClient(ClientVO clientVO) {
 
         try {
             ClientVO res = clientMapper.selectValidClient(clientVO);
 
             // 로그인에 성공하면 로그인 상태를 Yes로 한다.
-            if (res == null) {
-                System.out.println("null~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-//            res.setLoginStatus("No");
-            } else {
+            if (res != null) {
                 res.setLoginStatus("Yes");
+            } else if(res == null) {
+                res.setLoginStatus("No");
             }
 
             return res;
         }catch (Exception e){
-            throw new ExceptionUtils(clientVO);
-        }finally {
+            //널포인트, 쿼리 문제 등등
+            new ExceptionUtils(clientVO);
             return clientVO;
         }
     }
@@ -53,7 +52,7 @@ public class ClientServiceImpl implements ClientService {
 //        clientMapper.insertClient(signUpVO);
 //    }
     @Override
-    public int DeduplicationUser_ID(SignUpVO signUpVO) throws ExceptionUtils {
+    public SignUpVO DeduplicationUser_ID(SignUpVO signUpVO){
 
         //회원가입시 이미 등록된 User_ID가 있는지 확인!
         try {
@@ -66,15 +65,13 @@ public class ClientServiceImpl implements ClientService {
                 signUpVO.setSuccessMessage("회원가입 성공!");
                 clientMapper.insertClient(signUpVO);
             }
-            return clientMapper.DeduplicationUser_ID(signUpVO);
+            return signUpVO;
 
         }catch (Exception e){
-            throw new ExceptionUtils(signUpVO);
+            new ExceptionUtils(signUpVO);
+            return signUpVO;
         }
-        finally {
 
-            return 0;
-        }
     }
 
 }

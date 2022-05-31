@@ -7,6 +7,7 @@ public class ClientVO{
     private String PassWord;
     private String name;
     private String LoginStatus;
+    private String FailMessage;
 
     public String getUser_ID() {
         return User_ID;
@@ -40,4 +41,11 @@ public class ClientVO{
         LoginStatus = loginStatus;
     }
 
+    public String getFailMessage() {
+        return FailMessage;
+    }
+
+    public void setFailMessage(String failMessage) {
+        FailMessage = failMessage;
+    }
 }

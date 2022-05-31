@@ -9,12 +9,12 @@ public class ExceptionUtils extends Exception {
 //    private static final String MESSAGE = "중복 user_ID확인 error";
 
     public ExceptionUtils(SignUpVO signUpVO) {
-        signUpVO.setFailMessage("error 발생");
+        signUpVO.setFailMessage(" error 발생 ");
 //        super(MESSAGE);
     }
 
+
     public ExceptionUtils(ClientVO clientVO) {
-        clientVO.setLoginStatus("error 발생");
-//        super(MESSAGE);
+        clientVO.setFailMessage(" 로그인 실패 ");
     }
 }

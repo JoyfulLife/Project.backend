@@ -13,10 +13,10 @@ import java.util.List;
 public interface ClientService {
 //    public List<ClientVO> getAllDataList();
 
-    public ClientVO selectValidClient(ClientVO clientVO) throws ExceptionUtils;
+    public ClientVO selectValidClient(ClientVO clientVO);
 
 //    public void insertClient(SignUpVO signUpVO);
 
-    public int DeduplicationUser_ID(SignUpVO signUpVO) throws ExceptionUtils;
+    public SignUpVO DeduplicationUser_ID(SignUpVO signUpVO);
 
 }

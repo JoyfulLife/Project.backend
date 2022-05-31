@@ -24,7 +24,7 @@ public class ClientController{
 
     @RequestMapping(value = "/ado/client/clientInfo", method = RequestMethod.POST)
     @ResponseBody
-    public ClientVO validclient(Locale locale, @RequestBody ClientVO ClientVO) throws ExceptionUtils {
+    public ClientVO validclient(Locale locale, @RequestBody ClientVO ClientVO) {
 
         //로그인할때 등록된 인원인지 확인
         ClientVO clientVO = clientService.selectValidClient(ClientVO);
@@ -34,7 +34,7 @@ public class ClientController{
 
     @RequestMapping(value = "/ado/client/saveClient", method = RequestMethod.POST)
     @ResponseBody
-    public SignUpVO saveclient(Locale locale, @RequestBody SignUpVO signUpVO) throws ExceptionUtils {
+    public SignUpVO saveclient(Locale locale, @RequestBody SignUpVO signUpVO) {
 
         //회원가입시 이미 등록된 User_ID가 있는지 확인!
         clientService.DeduplicationUser_ID(signUpVO);

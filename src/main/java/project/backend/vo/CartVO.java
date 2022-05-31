@@ -7,6 +7,10 @@ public class CartVO {
     private int limit_st;
     private int cart_count;
 
+    private String category;
+    private String brand_name;
+    private String url;
+
     public int getPage() {
         return page;
     }
@@ -37,5 +41,29 @@ public class CartVO {
 
     public void setCart_count(int cart_count) {
         this.cart_count = cart_count;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getBrand_name() {
+        return brand_name;
+    }
+
+    public void setBrand_name(String brand_name) {
+        this.brand_name = brand_name;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

@@ -29,6 +29,17 @@
     <select id="getCartList" resultType="project.backend.vo.AdvertisingVO">
         select *
         from project.cart_m
+        where
+            PROJECT_CD = 'P2022'
+            <if test="category != '' ">
+                and CATEGORY = #{category}
+            </if>
+            <if test="brand_name != '' ">
+                and BRAND_NAME = #{brand_name}
+            </if>
+            <if test="url != '' ">
+                and CATEGORY = #{url}
+            </if>
         limit #{limit_st}, #{limit}
     </select>
 

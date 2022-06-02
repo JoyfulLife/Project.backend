@@ -13,7 +13,8 @@
             URL,
             BRAND_NAME,
             IMAGE,
-            REMARKS
+            REMARKS,
+            PROJECT_CD
     )
     values (
         #{category},
@@ -22,7 +23,8 @@
         #{url},
         #{brand_name},
         #{image},
-        #{remarks}
+        #{remarks},
+        'P2022'
         );
     </insert>
 

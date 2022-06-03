@@ -28,15 +28,26 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public List<CartVO> getCartList(CartVO cartVO) {
+    public cartListAndCount getCartList(CartVO cartVO) {
 
         List<CartVO> res = cartMapper.getCartList(cartVO);
 
-        //TODO cart_count !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         int cartCount = cartMapper.cart_Count(cartVO);
 
-        return res;
+        return new cartListAndCount(res, cartCount);
     }
 
+    //getCartList 에서 list와 count 둘다 동시에 받아오기 위해서 만든 class
+    public class cartListAndCount {
+
+        public List<CartVO> res;
+        public int cartCount;
+
+        public cartListAndCount(List<CartVO> res, int cartCount) {
+            this.res = res;
+            this.cartCount = cartCount;
+        }
+
+    }
 
 }

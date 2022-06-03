@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import project.backend.service.CartService;
+import project.backend.service.CartServiceImpl;
 import project.backend.vo.AdvertisingVO;
 import project.backend.vo.CartVO;
 import project.backend.vo.ClientVO;
@@ -34,8 +35,8 @@ public class CartController {
 
     @RequestMapping(value = "/cart/cartList", method = RequestMethod.POST)
     @ResponseBody
-    public List<CartVO> getCartList(Locale locale, @RequestBody CartVO cartVO){
-        List<CartVO> res = cartService.getCartList(cartVO);
+    public CartServiceImpl.cartListAndCount getCartList(Locale locale, @RequestBody CartVO cartVO){
+        CartServiceImpl.cartListAndCount res = cartService.getCartList(cartVO);
 
         return res;
     }

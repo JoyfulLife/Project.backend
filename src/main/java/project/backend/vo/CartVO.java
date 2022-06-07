@@ -11,6 +11,8 @@ public class CartVO {
     private String brand_name;
     private String url;
 
+    private String FailMessage;
+
     public int getPage() {
         return page;
     }
@@ -65,5 +67,13 @@ public class CartVO {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getFailMessage() {
+        return FailMessage;
+    }
+
+    public void setFailMessage(String failMessage) {
+        FailMessage = failMessage;
     }
 }

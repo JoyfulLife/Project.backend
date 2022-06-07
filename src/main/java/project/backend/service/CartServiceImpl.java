@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import project.backend.dao.CartMapper;
+import project.backend.util.ExceptionUtils;
 import project.backend.vo.AdvertisingVO;
 import project.backend.vo.CartVO;
 
@@ -48,6 +49,21 @@ public class CartServiceImpl implements CartService {
             this.cartCount = cartCount;
         }
 
+    }
+
+    @Override
+    public void deleteCartList(List<AdvertisingVO> advertisingVO) {
+
+        cartMapper.deleteCartList(advertisingVO);
+//        AdvertisingVO aaa = new AdvertisingVO();
+//        try {
+//            AdvertisingVO ddd = cartMapper.deleteCartList(advertisingVO);
+//            return ddd;
+//        }catch (Exception e){
+//            new ExceptionUtils();
+//        }
+//
+//        return aaa;
     }
 
 }

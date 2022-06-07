@@ -60,4 +60,16 @@
             and CATEGORY = #{url}
         </if>
     </select>
+
+    <delete id="deleteCartList">
+        delete
+        from project.cart_m
+        where
+            PROJECT_CD = 'P2022' AND
+            AD_NO in (
+                <foreach collection="list" item="item" separator=", ">
+                    #{item.ad_no}
+                </foreach>
+                )
+    </delete>
 </mapper>

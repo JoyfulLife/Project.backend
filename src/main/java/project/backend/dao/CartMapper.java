@@ -15,4 +15,6 @@ public interface CartMapper {
     List<CartVO> getCartList(CartVO cartVO);
 
     int cart_Count(CartVO cartVO);
+
+    public void deleteCartList(List<AdvertisingVO> advertisingVO);
 }

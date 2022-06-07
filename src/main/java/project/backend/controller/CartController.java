@@ -40,4 +40,14 @@ public class CartController {
 
         return res;
     }
+
+    @RequestMapping(value = "/cart/deleteCartList", method = RequestMethod.POST)
+    @ResponseBody
+    public void deleteCartList(Locale locale, @RequestBody List<AdvertisingVO> advertisingVO){
+
+        cartService.deleteCartList(advertisingVO);
+
+
+    }
+
 }

@@ -17,4 +17,8 @@ public class ExceptionUtils extends Exception {
     public ExceptionUtils(ClientVO clientVO) {
         clientVO.setFailMessage(" 로그인 실패 ");
     }
+
+    public ExceptionUtils() {
+        System.out.println(" 쿼리 에러 ");
+    }
 }

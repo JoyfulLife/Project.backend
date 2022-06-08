@@ -52,18 +52,23 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public void deleteCartList(List<AdvertisingVO> advertisingVO) {
+    public CartVO deleteCartList(List<AdvertisingVO> advertisingVO) {
 
-        cartMapper.deleteCartList(advertisingVO);
-//        AdvertisingVO aaa = new AdvertisingVO();
-//        try {
-//            AdvertisingVO ddd = cartMapper.deleteCartList(advertisingVO);
-//            return ddd;
-//        }catch (Exception e){
-//            new ExceptionUtils();
-//        }
-//
-//        return aaa;
+        CartVO cartVO = new CartVO();
+
+        try {
+            // 삭제한 갯수 넘겨주기 방법 2개  int deleteCount = advertisingVO.size();
+            int deleteCount = cartMapper.deleteCartListCount(advertisingVO);
+
+            cartMapper.deleteCartList(advertisingVO);
+            cartVO.setSuccessMessage( deleteCount +"개 삭제 성공!! ");
+
+        }catch (Exception e){
+            new ExceptionUtils(cartVO);
+            return cartVO;
+        }
+
+        return cartVO;
     }
 
 }

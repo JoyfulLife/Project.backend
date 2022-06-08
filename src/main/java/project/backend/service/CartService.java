@@ -11,5 +11,5 @@ public interface CartService {
 
     public CartServiceImpl.cartListAndCount getCartList(CartVO cartVO);
 
-    public void deleteCartList(List<AdvertisingVO> advertisingVO);
+    public CartVO deleteCartList(List<AdvertisingVO> advertisingVO);
 }

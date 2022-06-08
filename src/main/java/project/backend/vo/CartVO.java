@@ -12,6 +12,7 @@ public class CartVO {
     private String url;
 
     private String FailMessage;
+    private String SuccessMessage;
 
     public int getPage() {
         return page;
@@ -75,5 +76,13 @@ public class CartVO {
 
     public void setFailMessage(String failMessage) {
         FailMessage = failMessage;
+    }
+
+    public String getSuccessMessage() {
+        return SuccessMessage;
+    }
+
+    public void setSuccessMessage(String successMessage) {
+        SuccessMessage = successMessage;
     }
 }

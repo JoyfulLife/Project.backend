@@ -37,4 +37,12 @@ public class AdvertisingController {
         return res;
     }
 
+    @RequestMapping(value = "/advertising/insertAdvertising", method = RequestMethod.POST)
+    @ResponseBody
+    public void insertAdvertising(Locale locale, @RequestBody AdvertisingVO advertisingVO) {
+
+        advertisingService.insertAdvertising(advertisingVO);
+
+    }
+
 }

@@ -51,4 +51,11 @@ public class AdvertisingServiceImpl implements AdvertisingService{
 
         return advertisingVO;
     }
+
+    @Override
+    public void insertAdvertising(AdvertisingVO advertisingVO) {
+
+        advertisingMapper.insertAdvertising(advertisingVO);
+
+    }
 }

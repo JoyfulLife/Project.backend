@@ -10,4 +10,6 @@ public interface AdvertisingService {
     public List<AdvertisingVO> selectAdvertisingList(AdvertisingVO advertisingVO);
 
     public CountAdvertisingVO countAdvertisingList(CountAdvertisingVO countAdvertisingVO);
+
+    public void insertAdvertising(AdvertisingVO advertisingVO);
 }

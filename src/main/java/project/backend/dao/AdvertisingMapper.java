@@ -16,5 +16,7 @@ public interface AdvertisingMapper {
 
     int categoryCount(CountAdvertisingVO countAdvertisingVO);
 
+    void insertAdvertising(AdvertisingVO advertisingVO);
+
 
 }

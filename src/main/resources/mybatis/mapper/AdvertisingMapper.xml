@@ -26,5 +26,26 @@
 
     </select>
 
-
+    <insert id="insertAdvertising">
+        insert into project.advertising_m (
+            CATEGORY,
+            CREATE_DATE,
+            USER_ID,
+            URL,
+            BRAND_NAME,
+            IMAGE,
+            REMARKS,
+            APPROVAL
+        )
+        values (
+                   #{category},
+                   now(),
+                   #{user_id},
+                   #{url},
+                   #{brand_name},
+                   #{image},
+                   #{remarks},
+                   'pending'
+               );
+    </insert>
 </mapper>

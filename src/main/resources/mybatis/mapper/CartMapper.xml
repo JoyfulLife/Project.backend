@@ -40,7 +40,7 @@
                 and BRAND_NAME = #{brand_name}
             </if>
             <if test="url != '' ">
-                and CATEGORY = #{url}
+                and url = #{url}
             </if>
         limit #{limit_st}, #{limit}
     </select>
@@ -57,7 +57,7 @@
             and BRAND_NAME = #{brand_name}
         </if>
         <if test="url != '' ">
-            and CATEGORY = #{url}
+            and url = #{url}
         </if>
     </select>
 

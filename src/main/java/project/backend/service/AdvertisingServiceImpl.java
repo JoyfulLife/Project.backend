@@ -3,10 +3,8 @@ package project.backend.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.backend.dao.AdvertisingMapper;
-import project.backend.vo.AdvertisingVO;
-import project.backend.vo.ClientVO;
-import project.backend.vo.CountAdvertisingVO;
-import project.backend.vo.ResponseVO;
+import project.backend.util.ExceptionUtils;
+import project.backend.vo.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,9 +51,60 @@ public class AdvertisingServiceImpl implements AdvertisingService{
     }
 
     @Override
-    public void insertAdvertising(AdvertisingVO advertisingVO) {
+    public AdvertisingVO insertAdvertising(AdvertisingVO advertisingVO) {
+        try{
 
-        advertisingMapper.insertAdvertising(advertisingVO);
+            advertisingMapper.insertAdvertising(advertisingVO);
+            advertisingVO.setMessage(" 성공! ");
+        }catch (Exception e) {
+            new ExceptionUtils(advertisingVO);
+
+            return advertisingVO;
+        }
+
+        return advertisingVO;
+    }
+
+    @Override
+    public MyAdrequestListAndCount selectMyAdRequestList(AdvertisingVO advertisingVO) {
+
+        List<AdvertisingVO> res = advertisingMapper.selectMyAdRequestList(advertisingVO);
+
+        int myAdCount = advertisingMapper.myAdRequest_Count(advertisingVO);
+
+        return new MyAdrequestListAndCount(res , myAdCount);
+    }
+    //selectMyAdRequestList 에서 list와 count 둘다 동시에 받아오기 위해서 만든 class
+    public class MyAdrequestListAndCount {
+
+        public List<AdvertisingVO> res;
+        public int myAdCount;
+
+        public MyAdrequestListAndCount(List<AdvertisingVO> res, int myAdCount) {
+            this.res = res;
+            this.myAdCount = myAdCount;
+        }
 
     }
+
+    @Override
+    public AdvertisingVO deleteMyAdRequestList(List<AdvertisingVO> advertisingVO) {
+
+        AdvertisingVO res = new AdvertisingVO();
+
+        try {
+            // 삭제한 갯수 넘겨주기 방법 2개  int deleteCount = advertisingVO.size();
+            int deleteCount = advertisingMapper.deleteMyAdRequestListCount(advertisingVO);
+
+            advertisingMapper.deleteMyAdRequestList(advertisingVO);
+            res.setMessage( deleteCount +"개 삭제 성공!! ");
+
+        }catch (Exception e){
+            new ExceptionUtils(res);
+            return res;
+        }
+
+        return res;
+    }
+
 }

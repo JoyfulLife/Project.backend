@@ -9,7 +9,11 @@ import java.util.List;
 public interface AdvertisingService {
     public List<AdvertisingVO> selectAdvertisingList(AdvertisingVO advertisingVO);
 
+    public AdvertisingServiceImpl.MyAdrequestListAndCount selectMyAdRequestList(AdvertisingVO advertisingVO);
+
     public CountAdvertisingVO countAdvertisingList(CountAdvertisingVO countAdvertisingVO);
 
-    public void insertAdvertising(AdvertisingVO advertisingVO);
+    public AdvertisingVO insertAdvertising(AdvertisingVO advertisingVO);
+
+    public AdvertisingVO deleteMyAdRequestList(List<AdvertisingVO> advertisingVO);
 }

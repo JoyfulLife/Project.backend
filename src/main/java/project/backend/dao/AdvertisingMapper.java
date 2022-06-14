@@ -18,5 +18,11 @@ public interface AdvertisingMapper {
 
     void insertAdvertising(AdvertisingVO advertisingVO);
 
+    List<AdvertisingVO> selectMyAdRequestList(AdvertisingVO advertisingVO);
 
+    int myAdRequest_Count(AdvertisingVO advertisingVO);
+
+    public void deleteMyAdRequestList(List<AdvertisingVO> advertisingVO);
+
+    int deleteMyAdRequestListCount(List<AdvertisingVO> advertisingVO);
 }

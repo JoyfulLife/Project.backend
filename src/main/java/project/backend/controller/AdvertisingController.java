@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import project.backend.service.AdvertisingService;
+import project.backend.service.AdvertisingServiceImpl;
 import project.backend.vo.AdvertisingVO;
 import project.backend.vo.CountAdvertisingVO;
 
@@ -39,10 +40,30 @@ public class AdvertisingController {
 
     @RequestMapping(value = "/advertising/insertAdvertising", method = RequestMethod.POST)
     @ResponseBody
-    public void insertAdvertising(Locale locale, @RequestBody AdvertisingVO advertisingVO) {
+    public AdvertisingVO insertAdvertising(Locale locale, @RequestBody AdvertisingVO advertisingVO) {
 
         advertisingService.insertAdvertising(advertisingVO);
 
+        return advertisingVO;
     }
 
+    @RequestMapping(value = "/advertising/myAdRequest", method = RequestMethod.POST)
+    @ResponseBody
+    public AdvertisingServiceImpl.MyAdrequestListAndCount getMyAdRequestList(Locale locale, @RequestBody AdvertisingVO advertisingVO) {
+
+        AdvertisingServiceImpl.MyAdrequestListAndCount res = advertisingService.selectMyAdRequestList(advertisingVO);
+
+        return res;
+    }
+
+    @RequestMapping(value = "/advertising/deleteMyAdRequest", method = RequestMethod.POST)
+    @ResponseBody
+    public AdvertisingVO deleteMyAdRequestList(Locale locale, @RequestBody List<AdvertisingVO> advertisingVO){
+
+        AdvertisingVO res = new AdvertisingVO();
+
+        res = advertisingService.deleteMyAdRequestList(advertisingVO);
+
+        return res;
+    }
 }

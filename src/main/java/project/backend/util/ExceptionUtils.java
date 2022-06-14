@@ -21,4 +21,8 @@ public class ExceptionUtils extends Exception {
     public ExceptionUtils(CartVO cartVO) {
         cartVO.setFailMessage(" error 발생하였습니다. 다시 시도해주세요 ");
     }
+
+    public ExceptionUtils(AdvertisingVO advertisingVO) {
+        advertisingVO.setMessage(" error 발생 ");
+    }
 }

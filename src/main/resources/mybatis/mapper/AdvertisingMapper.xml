@@ -35,7 +35,8 @@
             BRAND_NAME,
             IMAGE,
             REMARKS,
-            APPROVAL
+            APPROVAL,
+            PROJECT_CD
         )
         values (
                    #{category},
@@ -45,7 +46,48 @@
                    #{brand_name},
                    #{image},
                    #{remarks},
-                   'pending'
+                   'pending',
+                   'P2022'
                );
     </insert>
+
+    <select id="selectMyAdRequestList" resultType="project.backend.vo.AdvertisingVO">
+        select *
+        from project.advertising_m
+        where
+            USER_ID = #{user_id}
+        limit #{limit_st}, #{limit}
+    </select>
+
+    <select id="myAdRequest_Count" resultType="_int">
+        select count(*)
+        from project.advertising_m
+        where
+            USER_ID = #{user_id}
+
+    </select>
+
+    <delete id="deleteMyAdRequestList">
+        delete
+        from project.advertising_m
+        where
+        PROJECT_CD = 'P2022' AND
+        AD_NO in (
+        <foreach collection="list" item="item" separator=", ">
+            #{item.ad_no}
+        </foreach>
+        )
+    </delete>
+
+    <select id="deleteMyAdRequestListCount" resultType="_int">
+        select count(*)
+        from project.advertising_m
+        where
+        PROJECT_CD = 'P2022' AND
+        AD_NO in (
+        <foreach collection="list" item="item" separator=", ">
+            #{item.ad_no}
+        </foreach>
+        )
+    </select>
 </mapper>

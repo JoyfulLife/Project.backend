@@ -12,6 +12,11 @@ public class AdvertisingVO{
     private String brand_name;
     private String image;
     private String remarks;
+    private String message;
+    private String approval;
+    private int page;
+    private int limit;
+    private int limit_st;
 
     public String getAd_no() {
         return ad_no;
@@ -75,5 +80,45 @@ public class AdvertisingVO{
 
     public void setRemarks(String remarks) {
         this.remarks = remarks;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getApproval() {
+        return approval;
+    }
+
+    public void setApproval(String approval) {
+        this.approval = approval;
+    }
+
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
+    }
+
+    public int getLimit() {
+        return limit;
+    }
+
+    public void setLimit(int limit) {
+        this.limit = limit;
+    }
+
+    public int getLimit_st() {
+        return limit_st;
+    }
+
+    public void setLimit_st(int limit_st) {
+        this.limit_st = limit_st;
     }
 }

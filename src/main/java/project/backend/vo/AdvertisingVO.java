@@ -17,6 +17,7 @@ public class AdvertisingVO{
     private int page;
     private int limit;
     private int limit_st;
+    private String adminCheck;
 
     public String getAd_no() {
         return ad_no;
@@ -120,5 +121,13 @@ public class AdvertisingVO{
 
     public void setLimit_st(int limit_st) {
         this.limit_st = limit_st;
+    }
+
+    public String getAdminCheck() {
+        return adminCheck;
+    }
+
+    public void setAdminCheck(String adminCheck) {
+        this.adminCheck = adminCheck;
     }
 }

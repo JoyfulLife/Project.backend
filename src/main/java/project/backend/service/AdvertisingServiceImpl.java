@@ -21,10 +21,23 @@ public class AdvertisingServiceImpl implements AdvertisingService{
     @Override
     public List<AdvertisingVO> selectAdvertisingList(AdvertisingVO advertisingVO) {
 
-        List<AdvertisingVO> res = advertisingMapper.selectAdvertisingList(advertisingVO);
 
+        List<AdvertisingVO> res = new ArrayList<>();
+        try {
+            if (advertisingVO.getAdminCheck().isEmpty()) {
+                // 일단 유저들이 list를 받을 때
+                res = advertisingMapper.selectAdvertisingList(advertisingVO);
+            } else {
+                // admin이 AD list를 받을때 (승인을 할지 안할지 판단하기 위함)
+                res = advertisingMapper.seledctAdminList(advertisingVO);
+            }
+            return res;
+        }catch (Exception e){
+            // 에러 발생시  message 넘겨주는 거 개발 완료 하도록........
+            new ExceptionUtils(advertisingVO);
+            return res;
+        }
 
-        return res;
     }
 
     @Override

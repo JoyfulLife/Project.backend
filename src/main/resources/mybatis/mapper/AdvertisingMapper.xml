@@ -15,6 +15,14 @@
             </if>
     </select>
 
+    <select id="seledctAdminList" resultType="project.backend.vo.AdvertisingVO">
+        select *
+        from project.advertising_m
+        where
+        APPROVAL = 'Pending'
+
+    </select>
+
     <select id="categoryCount" resultType="_int">
         select count(*)
         from project.advertising_m
@@ -46,7 +54,7 @@
                    #{brand_name},
                    #{image},
                    #{remarks},
-                   'pending',
+                   'Pending',
                    'P2022'
                );
     </insert>

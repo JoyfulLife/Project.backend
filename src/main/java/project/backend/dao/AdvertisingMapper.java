@@ -14,6 +14,8 @@ public interface AdvertisingMapper {
 
     List<AdvertisingVO> selectAdvertisingList(AdvertisingVO advertisingVO);
 
+    List<AdvertisingVO> seledctAdminList(AdvertisingVO advertisingVO);
+
     int categoryCount(CountAdvertisingVO countAdvertisingVO);
 
     void insertAdvertising(AdvertisingVO advertisingVO);
@@ -25,4 +27,6 @@ public interface AdvertisingMapper {
     public void deleteMyAdRequestList(List<AdvertisingVO> advertisingVO);
 
     int deleteMyAdRequestListCount(List<AdvertisingVO> advertisingVO);
+
+
 }

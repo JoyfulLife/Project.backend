@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface CartService {
 
-    public void insertCart(AdvertisingVO advertisingVO);
+    public AdvertisingVO insertCart(AdvertisingVO advertisingVO);
 
     public CartServiceImpl.cartListAndCount getCartList(CartVO cartVO);
 

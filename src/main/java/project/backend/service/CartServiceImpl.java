@@ -22,10 +22,17 @@ public class CartServiceImpl implements CartService {
 
     @Transactional
     @Override
-    public void insertCart(AdvertisingVO advertisingVO) {
+    public AdvertisingVO insertCart(AdvertisingVO advertisingVO) {
 
-        cartMapper.insertCart(advertisingVO);
+        try {
+            cartMapper.insertCart(advertisingVO);
+            advertisingVO.setMessage(" Cart에 담겼습니다! ");
+        }catch (Exception e){
+            new ExceptionUtils(advertisingVO);
+            return  advertisingVO;
+        }
 
+        return advertisingVO;
     }
 
     @Override

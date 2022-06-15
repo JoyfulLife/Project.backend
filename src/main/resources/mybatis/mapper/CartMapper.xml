@@ -7,6 +7,7 @@
 
     <insert id="insertCart">
         insert into project.cart_m (
+            AD_NO,
             CATEGORY,
             CREATE_DATE,
             USER_ID,
@@ -17,6 +18,7 @@
             PROJECT_CD
     )
     values (
+        #{ad_no},
         #{category},
         now(),
         #{user_id},
@@ -32,7 +34,8 @@
         select *
         from project.cart_m
         where
-            PROJECT_CD = 'P2022'
+            PROJECT_CD = 'P2022' AND
+            USER_ID = #{user_id}
             <if test="category != '' ">
                 and CATEGORY = #{category}
             </if>
@@ -49,7 +52,8 @@
         select count(*)
         from project.cart_m
         where
-        PROJECT_CD = 'P2022'
+        PROJECT_CD = 'P2022' AND
+        USER_ID = #{user_id}
         <if test="category != '' ">
             and CATEGORY = #{category}
         </if>

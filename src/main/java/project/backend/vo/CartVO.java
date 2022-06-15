@@ -7,6 +7,8 @@ public class CartVO {
     private int limit_st;
     private int cart_count;
 
+
+    private String user_id;
     private String category;
     private String brand_name;
     private String url;
@@ -46,6 +48,13 @@ public class CartVO {
         this.cart_count = cart_count;
     }
 
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
     public String getCategory() {
         return category;
     }

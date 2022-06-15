@@ -27,10 +27,11 @@ public class CartController {
 
     @RequestMapping(value = "/cart/insertCart", method = RequestMethod.POST)
     @ResponseBody
-    public void insertCart(Locale locale, @RequestBody AdvertisingVO advertisingVO) {
+    public AdvertisingVO insertCart(Locale locale, @RequestBody AdvertisingVO advertisingVO) {
 
         cartService.insertCart(advertisingVO);
 
+        return advertisingVO;
     }
 
     @RequestMapping(value = "/cart/cartList", method = RequestMethod.POST)

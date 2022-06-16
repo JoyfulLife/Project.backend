@@ -28,5 +28,7 @@ public interface AdvertisingMapper {
 
     int deleteMyAdRequestListCount(List<AdvertisingVO> advertisingVO);
 
+    void updateAdvertisingList(AdvertisingVO advertisingVO);
+
 
 }

@@ -28,7 +28,12 @@ public class AdvertisingServiceImpl implements AdvertisingService{
                 // 일단 유저들이 list를 받을 때
                 res = advertisingMapper.selectAdvertisingList(advertisingVO);
             } else {
-                // admin이 AD list를 받을때 (승인을 할지 안할지 판단하기 위함)
+                // admin이 승인을 눌렀을때 승인처리를 하기 위함
+                if(advertisingVO.getAd_no() != null){
+                    advertisingMapper.updateAdvertisingList(advertisingVO);
+                }
+
+                // admin이 AD list를 받을때 (승인을 결정을 위해 받아오는 list)
                 res = advertisingMapper.seledctAdminList(advertisingVO);
             }
             return res;

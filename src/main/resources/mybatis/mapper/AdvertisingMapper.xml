@@ -107,4 +107,11 @@
         </foreach>
         )
     </select>
+
+    <update id="updateAdvertisingList">
+        update
+            project.advertising_m
+        set APPROVAL = 'Confirmed'
+        where AD_NO = #{ad_no}
+    </update>
 </mapper>

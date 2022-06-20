@@ -9,7 +9,7 @@
         select *
         from project.advertising_m
         where
-              APPROVAL = 'Confirmed'
+            APPROVAL = 'Confirmed'
             <if test="category != null and category != '' and category != 'All' ">
                 AND CATEGORY = #{category}
             </if>
@@ -20,7 +20,7 @@
         from project.advertising_m
         where
         APPROVAL = 'Pending'
-
+        limit #{limit_st}, #{limit}
     </select>
 
     <select id="categoryCount" resultType="_int">
@@ -114,4 +114,18 @@
         set APPROVAL = 'Confirmed'
         where AD_NO = #{ad_no}
     </update>
+
+    <delete id="denyAdvertisingList">
+        update
+            project.advertising_m
+        set APPROVAL = 'Deny'
+        where AD_NO = #{ad_no}
+    </delete>
+
+    <select id="AdCount" resultType="_int">
+        select count(*)
+        from project.advertising_m
+        where
+            APPROVAL = 'Pending'
+    </select>
 </mapper>

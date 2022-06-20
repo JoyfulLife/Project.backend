@@ -30,5 +30,8 @@ public interface AdvertisingMapper {
 
     void updateAdvertisingList(AdvertisingVO advertisingVO);
 
+    void denyAdvertisingList(AdvertisingVO advertisingVO);
+
+    int AdCount(AdvertisingVO advertisingVO);
 
 }

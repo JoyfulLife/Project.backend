@@ -7,7 +7,7 @@ import project.backend.vo.TableVO;
 import java.util.List;
 
 public interface AdvertisingService {
-    public List<AdvertisingVO> selectAdvertisingList(AdvertisingVO advertisingVO);
+    public AdvertisingServiceImpl.selectAdvertisingListAndCount selectAdvertisingList(AdvertisingVO advertisingVO);
 
     public AdvertisingServiceImpl.MyAdrequestListAndCount selectMyAdRequestList(AdvertisingVO advertisingVO);
 

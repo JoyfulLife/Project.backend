@@ -18,6 +18,10 @@ public class AdvertisingVO{
     private int limit;
     private int limit_st;
     private String adminCheck;
+    private String updateData;
+    private String deleteData;
+    private int rate;
+
 
     public String getAd_no() {
         return ad_no;
@@ -130,4 +134,27 @@ public class AdvertisingVO{
     public void setAdminCheck(String adminCheck) {
         this.adminCheck = adminCheck;
     }
+    public String getUpdateData() {
+        return updateData;
+    }
+
+    public void setUpdateData(String updateData) {
+        this.updateData = updateData;
+    }
+    public String getDeleteData() {
+        return deleteData;
+    }
+
+    public void setDeleteData(String deleteData) {
+        this.deleteData = deleteData;
+    }
+
+    public int getRate() {
+        return rate;
+    }
+
+    public void setRate(int rate) {
+        this.rate = rate;
+    }
+
 }

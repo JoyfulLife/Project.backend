@@ -15,7 +15,8 @@
             BRAND_NAME,
             IMAGE,
             REMARKS,
-            PROJECT_CD
+            PROJECT_CD,
+            RATE
     )
     values (
         #{ad_no},
@@ -26,7 +27,8 @@
         #{brand_name},
         #{image},
         #{remarks},
-        'P2022'
+        'P2022',
+        #{rate}
         );
     </insert>
 

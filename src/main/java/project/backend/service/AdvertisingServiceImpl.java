@@ -19,7 +19,7 @@ public class AdvertisingServiceImpl implements AdvertisingService{
     }
 
     @Override
-    public List<AdvertisingVO> selectAdvertisingList(AdvertisingVO advertisingVO) {
+    public selectAdvertisingListAndCount selectAdvertisingList(AdvertisingVO advertisingVO) {
 
 
         List<AdvertisingVO> res = new ArrayList<>();
@@ -29,18 +29,38 @@ public class AdvertisingServiceImpl implements AdvertisingService{
                 res = advertisingMapper.selectAdvertisingList(advertisingVO);
             } else {
                 // admin이 승인을 눌렀을때 승인처리를 하기 위함
-                if(advertisingVO.getAd_no() != null){
+                if(advertisingVO.getUpdateData() != null){
                     advertisingMapper.updateAdvertisingList(advertisingVO);
+
+                    // 승인거절!!
+                }else if (advertisingVO.getDeleteData() != null){
+                    advertisingMapper.denyAdvertisingList(advertisingVO);
                 }
 
                 // admin이 AD list를 받을때 (승인을 결정을 위해 받아오는 list)
                 res = advertisingMapper.seledctAdminList(advertisingVO);
+
             }
-            return res;
+            int AdListCount = advertisingMapper.AdCount(advertisingVO);
+            return new selectAdvertisingListAndCount(res , AdListCount);
         }catch (Exception e){
             // 에러 발생시  message 넘겨주는 거 개발 완료 하도록........
             new ExceptionUtils(advertisingVO);
-            return res;
+            int AdListCount = 0;
+            return new selectAdvertisingListAndCount(res , AdListCount);
+        }
+
+    }
+
+    //selectMyAdRequestList 에서 list와 count 둘다 동시에 받아오기 위해서 만든 class
+    public class selectAdvertisingListAndCount {
+
+        public List<AdvertisingVO> res;
+        public int AdListCount;
+
+        public selectAdvertisingListAndCount(List<AdvertisingVO> res, int AdListCount) {
+            this.res = res;
+            this.AdListCount = AdListCount;
         }
 
     }

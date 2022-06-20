@@ -22,9 +22,9 @@ public class AdvertisingController {
 
     @RequestMapping(value = "/advertising/advertisingList", method = RequestMethod.POST)
     @ResponseBody
-    public List<AdvertisingVO> getAdvertisingList(Locale locale, @RequestBody AdvertisingVO advertisingVO) {
+    public AdvertisingServiceImpl.selectAdvertisingListAndCount getAdvertisingList(Locale locale, @RequestBody AdvertisingVO advertisingVO) {
 
-        List<AdvertisingVO> res = advertisingService.selectAdvertisingList(advertisingVO);
+        AdvertisingServiceImpl.selectAdvertisingListAndCount res = advertisingService.selectAdvertisingList(advertisingVO);
 
         return res;
     }

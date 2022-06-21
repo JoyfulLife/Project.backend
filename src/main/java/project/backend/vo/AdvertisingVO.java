@@ -21,6 +21,7 @@ public class AdvertisingVO{
     private String updateData;
     private String deleteData;
     private int rate;
+    private int num;
 
 
     public String getAd_no() {
@@ -155,6 +156,14 @@ public class AdvertisingVO{
 
     public void setRate(int rate) {
         this.rate = rate;
+    }
+
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
     }
 
 }

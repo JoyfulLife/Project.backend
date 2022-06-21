@@ -13,7 +13,7 @@
 
     <select id="selectValidClient" resultType="project.backend.vo.ClientVO">
 #         select exists(
-            select USER_ID, PASSWORD, name
+            select USER_ID, PASSWORD, name , PHONE_NO
             from project.client_m
             where USER_ID = #{user_ID} and
                   PASSWORD = #{PassWord}

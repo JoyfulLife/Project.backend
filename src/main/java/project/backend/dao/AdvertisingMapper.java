@@ -34,4 +34,7 @@ public interface AdvertisingMapper {
 
     int AdCount(AdvertisingVO advertisingVO);
 
+    List<AdvertisingVO> getAd_no(AdvertisingVO advertisingVO);
+
+    void rateUpdateAdvertisingList(AdvertisingVO advertisingVO);
 }

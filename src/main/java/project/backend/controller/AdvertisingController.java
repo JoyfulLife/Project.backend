@@ -66,4 +66,13 @@ public class AdvertisingController {
 
         return res;
     }
+
+    @RequestMapping(value = "/advertising/ad_no", method = RequestMethod.POST)
+    @ResponseBody
+    public List<AdvertisingVO> getAd_no(Locale locale, @RequestBody AdvertisingVO advertisingVO){
+
+        List<AdvertisingVO> res = advertisingService.getAd_no(advertisingVO);
+
+        return res;
+    }
 }

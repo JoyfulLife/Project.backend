@@ -26,6 +26,13 @@ public class AdvertisingServiceImpl implements AdvertisingService{
         try {
             if (advertisingVO.getAdminCheck().isEmpty()) {
                 // 일단 유저들이 list를 받을 때
+
+                //임시!!방편으로 루프를 돌림
+                for(int i = 1; i<=120; i++){
+
+                    advertisingVO.setNum(i);
+                    advertisingMapper.rateUpdateAdvertisingList(advertisingVO);
+                }
                 res = advertisingMapper.selectAdvertisingList(advertisingVO);
             } else {
                 // admin이 승인을 눌렀을때 승인처리를 하기 위함
@@ -52,7 +59,7 @@ public class AdvertisingServiceImpl implements AdvertisingService{
 
     }
 
-    //selectMyAdRequestList 에서 list와 count 둘다 동시에 받아오기 위해서 만든 class
+    //selectAdvertisingListAndCount 에서 list와 count 둘다 동시에 받아오기 위해서 만든 class
     public class selectAdvertisingListAndCount {
 
         public List<AdvertisingVO> res;
@@ -141,6 +148,14 @@ public class AdvertisingServiceImpl implements AdvertisingService{
             new ExceptionUtils(res);
             return res;
         }
+
+        return res;
+    }
+
+    @Override
+    public List<AdvertisingVO> getAd_no(AdvertisingVO advertisingVO) {
+
+        List<AdvertisingVO> res = advertisingMapper.getAd_no(advertisingVO);
 
         return res;
     }

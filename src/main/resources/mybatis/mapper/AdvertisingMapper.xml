@@ -128,4 +128,26 @@
         where
             APPROVAL = 'Pending'
     </select>
+
+    <select id="getAd_no" resultType="project.backend.vo.AdvertisingVO">
+        select AD_NO
+        from project.advertising_m
+        where
+        APPROVAL = 'Confirmed'
+        <if test="category != null and category != '' and category != 'All' ">
+            AND CATEGORY = #{category}
+        </if>
+    </select>
+
+    <update id="rateUpdateAdvertisingList">
+        update project.advertising_m P
+        set P.RATE =
+                (select *
+                 from
+                     (select ifnull(avg(C.RATE), 0)
+                      from project.advertising_m A
+                        left JOIN project.cart_m C ON A.AD_NO = C.AD_NO
+                      where C.AD_NO = #{num}) tmp)
+        where P.AD_NO = #{num}
+    </update>
 </mapper>

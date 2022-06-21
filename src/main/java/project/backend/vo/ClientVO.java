@@ -8,6 +8,7 @@ public class ClientVO{
     private String name;
     private String LoginStatus;
     private String FailMessage;
+    private String Phone_no;
 
     public String getUser_ID() {
         return User_ID;
@@ -47,5 +48,13 @@ public class ClientVO{
 
     public void setFailMessage(String failMessage) {
         FailMessage = failMessage;
+    }
+
+    public String getPhone_no() {
+        return Phone_no;
+    }
+
+    public void setPhone_no(String phone_no) {
+        Phone_no = phone_no;
     }
 }

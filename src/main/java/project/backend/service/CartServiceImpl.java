@@ -25,8 +25,15 @@ public class CartServiceImpl implements CartService {
     public AdvertisingVO insertCart(AdvertisingVO advertisingVO) {
 
         try {
-            cartMapper.insertCart(advertisingVO);
-            advertisingVO.setMessage(" Cart에 담겼습니다! ");
+            //cart에 중복으로 담을수 없도록!
+            int duplicateCheck = cartMapper.duplicateCartCheck(advertisingVO);
+            if(duplicateCheck == 0){
+                cartMapper.insertCart(advertisingVO);
+                advertisingVO.setMessage(" Cart에 담겼습니다! ");
+            }else {
+                advertisingVO.setMessage(" 중복된 Cart가 존재합니다.! ");
+            }
+
         }catch (Exception e){
             new ExceptionUtils(advertisingVO);
             return  advertisingVO;

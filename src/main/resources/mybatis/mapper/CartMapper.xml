@@ -90,4 +90,13 @@
         </foreach>
         )
     </select>
+
+    <select id="duplicateCartCheck" resultType="_int">
+        select count(*)
+        from project.cart_m
+        where
+            PROJECT_CD = 'P2022' AND
+            AD_NO = #{ad_no} AND
+            USER_ID = #{user_id}
+    </select>
 </mapper>

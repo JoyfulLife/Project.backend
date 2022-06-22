@@ -62,7 +62,7 @@ public class ClientServiceImpl implements ClientService {
             if (DeduplicationUser_ID >= 1) {
                 signUpVO.setFailMessage("중복된 User_ID입니다.");
             } else {
-                signUpVO.setSuccessMessage("회원가입 성공!");
+                signUpVO.setSuccessMessage("회원가입 성공! 로그인 해주세요~");
                 clientMapper.insertClient(signUpVO);
             }
             return signUpVO;

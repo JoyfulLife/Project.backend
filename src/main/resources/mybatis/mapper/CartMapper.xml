@@ -72,6 +72,11 @@
         from project.cart_m
         where
             PROJECT_CD = 'P2022' AND
+        USER_ID in (
+        <foreach collection="list" item="item" separator=", ">
+            #{item.user_id}
+        </foreach>
+        )and
             AD_NO in (
                 <foreach collection="list" item="item" separator=", ">
                     #{item.ad_no}
@@ -84,6 +89,11 @@
         from project.cart_m
         where
         PROJECT_CD = 'P2022' AND
+        USER_ID in (
+        <foreach collection="list" item="item" separator=", ">
+            #{item.user_id}
+        </foreach>
+        )and
         AD_NO in (
         <foreach collection="list" item="item" separator=", ">
             #{item.ad_no}

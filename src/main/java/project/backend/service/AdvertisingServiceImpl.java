@@ -100,7 +100,7 @@ public class AdvertisingServiceImpl implements AdvertisingService{
         try{
 
             advertisingMapper.insertAdvertising(advertisingVO);
-            advertisingVO.setMessage(" 광고 신청에 성공했습니다.! ");
+            advertisingVO.setMessage(" 광고 신청에 성공했습니다.! 관리자가 승인하기 전까지 기다려 주세요~");
         }catch (Exception e) {
             new ExceptionUtils(advertisingVO);
 

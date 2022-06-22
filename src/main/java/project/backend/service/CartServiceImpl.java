@@ -31,7 +31,7 @@ public class CartServiceImpl implements CartService {
                 cartMapper.insertCart(advertisingVO);
                 advertisingVO.setMessage(" Cart에 담겼습니다! ");
             }else {
-                advertisingVO.setMessage(" 중복된 Cart가 존재합니다.! ");
+                advertisingVO.setMessage(" 이미 Cart에 존재합니다.! ");
             }
 
         }catch (Exception e){
@@ -72,6 +72,7 @@ public class CartServiceImpl implements CartService {
 
         try {
             // 삭제한 갯수 넘겨주기 방법 2개  int deleteCount = advertisingVO.size();
+
             int deleteCount = cartMapper.deleteCartListCount(advertisingVO);
 
             cartMapper.deleteCartList(advertisingVO);

@@ -5,8 +5,9 @@ public class CountAdvertisingVO {
     private String category;
     private int all_count;
     private int sports_count;
-    private int shoping_count;
+    private int shopping_count;
     private int book_count;
+    private int cart_count;
 
     public int getAll_count() {
         return all_count;
@@ -32,12 +33,12 @@ public class CountAdvertisingVO {
         this.sports_count = sports_count;
     }
 
-    public int getShoping_count() {
-        return shoping_count;
+    public int getShopping_count() {
+        return shopping_count;
     }
 
-    public void setShoping_count(int shoping_count) {
-        this.shoping_count = shoping_count;
+    public void setShopping_count(int shopping_count) {
+        this.shopping_count = shopping_count;
     }
 
     public int getBook_count() {
@@ -46,5 +47,13 @@ public class CountAdvertisingVO {
 
     public void setBook_count(int book_count) {
         this.book_count = book_count;
+    }
+
+    public int getCart_count() {
+        return cart_count;
+    }
+
+    public void setCart_count(int cart_count) {
+        this.cart_count = cart_count;
     }
 }

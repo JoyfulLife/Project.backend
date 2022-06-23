@@ -44,18 +44,20 @@
             IMAGE,
             REMARKS,
             APPROVAL,
-            PROJECT_CD
+            PROJECT_CD,
+            RATE
         )
         values (
-                   #{category},
-                   now(),
-                   #{user_id},
-                   #{url},
-                   #{brand_name},
-                   #{image},
-                   #{remarks},
-                   'Pending',
-                   'P2022'
+            #{category},
+            now(),
+            #{user_id},
+            #{url},
+            #{brand_name},
+            #{image},
+            #{remarks},
+            'Pending',
+            'P2022',
+            '0'
                );
     </insert>
 

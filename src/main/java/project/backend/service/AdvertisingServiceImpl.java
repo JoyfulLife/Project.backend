@@ -82,15 +82,15 @@ public class AdvertisingServiceImpl implements AdvertisingService{
         int allCount = advertisingMapper.categoryCount(countAdvertisingVO);
         countAdvertisingVO.setCategory("Sports");
         int sportsCount = advertisingMapper.categoryCount(countAdvertisingVO);
-        countAdvertisingVO.setCategory("News");
-        int newsCount = advertisingMapper.categoryCount(countAdvertisingVO);
-        countAdvertisingVO.setCategory("Web toon");
-        int webtoonCount = advertisingMapper.categoryCount(countAdvertisingVO);
+        countAdvertisingVO.setCategory("Shoping");
+        int shopingCount = advertisingMapper.categoryCount(countAdvertisingVO);
+        countAdvertisingVO.setCategory("Book");
+        int bookCount = advertisingMapper.categoryCount(countAdvertisingVO);
 
         advertisingVO.setAll_count(allCount);
         advertisingVO.setSports_count(sportsCount);
-        advertisingVO.setNews_count(newsCount);
-        advertisingVO.setWebtoon_count(webtoonCount);
+        advertisingVO.setShoping_count(shopingCount);
+        advertisingVO.setBook_count(bookCount);
 
         return advertisingVO;
     }

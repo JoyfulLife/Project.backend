@@ -22,7 +22,7 @@ public class ClientController{
         this.clientService = clientService;
     }
 
-    @RequestMapping(value = "/ado/client/clientInfo", method = RequestMethod.POST)
+    @RequestMapping(value = "/client/clientInfo", method = RequestMethod.POST)
     @ResponseBody
     public ClientVO validclient(Locale locale, @RequestBody ClientVO ClientVO) {
 
@@ -32,7 +32,7 @@ public class ClientController{
         return clientVO;
     }
 
-    @RequestMapping(value = "/ado/client/saveClient", method = RequestMethod.POST)
+    @RequestMapping(value = "/client/saveClient", method = RequestMethod.POST)
     @ResponseBody
     public SignUpVO saveclient(Locale locale, @RequestBody SignUpVO signUpVO) {
 

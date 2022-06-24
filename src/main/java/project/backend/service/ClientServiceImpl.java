@@ -2,14 +2,9 @@ package project.backend.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.validation.Errors;
-import org.springframework.validation.ValidationUtils;
-import org.springframework.validation.Validator;
 import project.backend.dao.ClientMapper;
 import project.backend.util.ExceptionUtils;
 import project.backend.vo.ClientVO;
-import project.backend.vo.ResponseVO;
 import project.backend.vo.SignUpVO;
 
 import java.util.List;
@@ -28,6 +23,12 @@ public class ClientServiceImpl implements ClientService {
     public ClientVO selectValidClient(ClientVO clientVO) {
 
         try {
+            if(clientVO.getUpdate().equals("update")){
+                clientMapper.updateClient(clientVO);
+            }else if(clientVO.getDelete().equals("delete")){
+                clientMapper.deleteClient(clientVO);
+                clientVO.setDelete("YES");
+            }
             ClientVO res = clientMapper.selectValidClient(clientVO);
 
             // 로그인에 성공하면 로그인 상태를 Yes로 한다.
@@ -45,12 +46,6 @@ public class ClientServiceImpl implements ClientService {
         }
     }
 
-
-
-//    @Override
-//    public void insertClient(SignUpVO signUpVO) {
-//        clientMapper.insertClient(signUpVO);
-//    }
     @Override
     public SignUpVO DeduplicationUser_ID(SignUpVO signUpVO){
 

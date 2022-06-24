@@ -18,4 +18,8 @@ public interface ClientMapper {
     void insertClient(SignUpVO signUpVO);
 
     int DeduplicationUser_ID(SignUpVO signUpVO);
+
+    void updateClient(ClientVO clientVO);
+
+    void deleteClient(ClientVO clientVO);
 }

@@ -47,4 +47,16 @@
         where USER_ID = #{user_ID}
     </select>
 
+    <update id="updateClient">
+        update project.client_m
+        set PASSWORD = #{PassWord}, RECPASSWORD = #{PassWord}
+        where USER_ID = #{User_ID}
+    </update>
+
+    <delete id="deleteClient">
+        delete
+        from
+             project.client_m
+        where USER_ID = #{User_ID}
+    </delete>
 </mapper>

@@ -9,6 +9,8 @@ public class ClientVO{
     private String LoginStatus;
     private String FailMessage;
     private String Phone_no;
+    private String Update;
+    private String Delete;
 
     public String getUser_ID() {
         return User_ID;
@@ -56,5 +58,21 @@ public class ClientVO{
 
     public void setPhone_no(String phone_no) {
         Phone_no = phone_no;
+    }
+
+    public String getUpdate() {
+        return Update;
+    }
+
+    public void setUpdate(String update) {
+        Update = update;
+    }
+
+    public String getDelete() {
+        return Delete;
+    }
+
+    public void setDelete(String delete) {
+        Delete = delete;
     }
 }

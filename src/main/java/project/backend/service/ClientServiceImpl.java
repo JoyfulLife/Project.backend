@@ -23,22 +23,30 @@ public class ClientServiceImpl implements ClientService {
     public ClientVO selectValidClient(ClientVO clientVO) {
 
         try {
-            if(clientVO.getUpdate().equals("update")){
-                clientMapper.updateClient(clientVO);
-            }else if(clientVO.getDelete().equals("delete")){
+            //삭제할때 제외하고는 무조건 실행
+            if(!clientVO.getDelete().equals("delete")){
+                if(clientVO.getUpdate().equals("update")){
+                    clientMapper.updateClient(clientVO);
+                }
+
+                ClientVO res = clientMapper.selectValidClient(clientVO);
+
+                // 로그인에 성공하면 로그인 상태를 Yes로 한다.
+                if (res != null) {
+                    res.setLoginStatus("Yes");
+                } else if(res == null) {
+                    res.setLoginStatus("No");
+                }
+
+                return res;
+            }else {
+                //계정 삭제 할때.
                 clientMapper.deleteClient(clientVO);
                 clientVO.setDelete("YES");
-            }
-            ClientVO res = clientMapper.selectValidClient(clientVO);
 
-            // 로그인에 성공하면 로그인 상태를 Yes로 한다.
-            if (res != null) {
-                res.setLoginStatus("Yes");
-            } else if(res == null) {
-                res.setLoginStatus("No");
+                return clientVO;
             }
 
-            return res;
         }catch (Exception e){
             //널포인트, 쿼리 문제 등등
             new ExceptionUtils(clientVO);

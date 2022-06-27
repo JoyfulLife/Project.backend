@@ -26,13 +26,17 @@ public class AdvertisingServiceImpl implements AdvertisingService{
         try {
             if (advertisingVO.getAdminCheck().isEmpty()) {
                 // 일단 유저들이 list를 받을 때
+                //광고의 해당 Ad_no만 for문을 돌도록 => RATE를 항상 최신화 하기 위한 코드.
+                List<AdvertisingVO> resAd_no = advertisingMapper.getAd_no(advertisingVO);
 
-                //임시!!방편으로 루프를 돌림
-                for(int i = 1; i<=120; i++){
-
-                    advertisingVO.setNum(i);
+                for(AdvertisingVO tmp : resAd_no){
+                    //형변환
+                    int tmp_idex = Integer.parseInt(tmp.getAd_no());
+                    //RATE 업데이트를 한다.
+                    advertisingVO.setNum(tmp_idex);
                     advertisingMapper.rateUpdateAdvertisingList(advertisingVO);
                 }
+
                 res = advertisingMapper.selectAdvertisingList(advertisingVO);
             } else {
                 // admin이 승인을 눌렀을때 승인처리를 하기 위함

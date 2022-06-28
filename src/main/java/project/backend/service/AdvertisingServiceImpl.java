@@ -122,17 +122,30 @@ public class AdvertisingServiceImpl implements AdvertisingService{
     @Override
     public MyAdrequestListAndCount selectMyAdRequestList(AdvertisingVO advertisingVO) {
 
-        List<AdvertisingVO> res = advertisingMapper.selectMyAdRequestList(advertisingVO);
+        try{
+            List<AdvertisingVO> res = advertisingMapper.selectMyAdRequestList(advertisingVO);
 
-        int myAdCount = advertisingMapper.myAdRequest_Count(advertisingVO);
+            int myAdCount = advertisingMapper.myAdRequest_Count(advertisingVO);
 
-        return new MyAdrequestListAndCount(res , myAdCount);
+            return new MyAdrequestListAndCount(res , myAdCount);
+        }catch (Exception e){
+            new ExceptionUtils(advertisingVO);
+            return new MyAdrequestListAndCount(advertisingVO);
+        }
     }
+
     //selectMyAdRequestList 에서 list와 count 둘다 동시에 받아오기 위해서 만든 class
     public class MyAdrequestListAndCount {
 
         public List<AdvertisingVO> res;
         public int myAdCount;
+        public AdvertisingVO error;
+
+        public MyAdrequestListAndCount() {}
+
+        public MyAdrequestListAndCount(AdvertisingVO error) {
+            this.error = error;
+        }
 
         public MyAdrequestListAndCount(List<AdvertisingVO> res, int myAdCount) {
             this.res = res;

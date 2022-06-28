@@ -45,11 +45,16 @@ public class ClientController{
     public SignUpVO saveclient(Locale locale, @RequestBody SignUpVO signUpVO) {
 
         //회원가입시 이미 등록된 User_ID가 있는지 확인!
-        clientService.DeduplicationUser_ID(signUpVO);
+        //중복된 User_ID가 없으면 회원 등록을 한다.
+        try{
+            clientService.DeduplicationUser_ID(signUpVO);
 
-        //clientService.insertClient(signUpVO);
+            return signUpVO;
+        }catch (Exception e){
+            new ExceptionUtils(signUpVO);
 
-        return signUpVO;
+            return signUpVO;
+        }
 
     }
 }

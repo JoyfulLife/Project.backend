@@ -42,9 +42,17 @@ public class AdvertisingController {
     @ResponseBody
     public CountAdvertisingVO countAdvertisingList(Locale locale, @ModelAttribute CountAdvertisingVO countAdvertisingVO) {
 
-        CountAdvertisingVO res = advertisingService.countAdvertisingList(countAdvertisingVO);
+        CountAdvertisingVO res;
 
-        return res;
+        try{
+            res = advertisingService.countAdvertisingList(countAdvertisingVO);
+
+            return res;
+        }catch (Exception e){
+            new ExceptionUtils(countAdvertisingVO);
+
+            return countAdvertisingVO;
+        }
     }
 
     @RequestMapping(value = "/advertising/insertAdvertising", method = RequestMethod.POST)

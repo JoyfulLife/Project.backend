@@ -17,5 +17,4 @@ public interface AdvertisingService {
 
     public AdvertisingVO deleteMyAdRequestList(List<AdvertisingVO> advertisingVO);
 
-    public List<AdvertisingVO> getAd_no(AdvertisingVO advertisingVO);
 }

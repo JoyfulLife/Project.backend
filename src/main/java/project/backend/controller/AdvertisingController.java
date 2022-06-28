@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import project.backend.service.AdvertisingService;
 import project.backend.service.AdvertisingServiceImpl;
+import project.backend.util.ExceptionUtils;
 import project.backend.vo.AdvertisingVO;
 import project.backend.vo.CountAdvertisingVO;
 
@@ -27,6 +28,15 @@ public class AdvertisingController {
         AdvertisingServiceImpl.selectAdvertisingListAndCount res = advertisingService.selectAdvertisingList(advertisingVO);
 
         return res;
+//        AdvertisingServiceImpl.selectAdvertisingListAndCount res = new AdvertisingServiceImpl.selectAdvertisingListAndCount();
+//        try{
+//            res = advertisingService.selectAdvertisingList(advertisingVO);
+//
+//            return res;
+//        }catch (Exception e){
+//            new ExceptionUtils(advertisingVO);
+//            return res;
+//        }
     }
 
     @RequestMapping(value = "/advertising/countAdvertisingList", method = RequestMethod.GET)
@@ -67,12 +77,4 @@ public class AdvertisingController {
         return res;
     }
 
-    @RequestMapping(value = "/advertising/ad_no", method = RequestMethod.POST)
-    @ResponseBody
-    public List<AdvertisingVO> getAd_no(Locale locale, @RequestBody AdvertisingVO advertisingVO){
-
-        List<AdvertisingVO> res = advertisingService.getAd_no(advertisingVO);
-
-        return res;
-    }
 }

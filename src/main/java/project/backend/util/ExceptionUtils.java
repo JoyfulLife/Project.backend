@@ -1,9 +1,6 @@
 package project.backend.util;
 
-import project.backend.vo.AdvertisingVO;
-import project.backend.vo.CartVO;
-import project.backend.vo.ClientVO;
-import project.backend.vo.SignUpVO;
+import project.backend.vo.*;
 
 public class ExceptionUtils extends Exception {
 
@@ -24,5 +21,9 @@ public class ExceptionUtils extends Exception {
 
     public ExceptionUtils(AdvertisingVO advertisingVO) {
         advertisingVO.setMessage(" error 발생 ");
+    }
+
+    public ExceptionUtils(CountAdvertisingVO countAdvertisingVO) {
+        countAdvertisingVO.setMessage(" error 발생 ");
     }
 }

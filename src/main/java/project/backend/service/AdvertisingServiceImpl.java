@@ -66,6 +66,8 @@ public class AdvertisingServiceImpl implements AdvertisingService{
     //selectAdvertisingListAndCount 에서 list와 count 둘다 동시에 받아오기 위해서 만든 class
     public class selectAdvertisingListAndCount {
 
+//        public selectAdvertisingListAndCount() {}
+
         public List<AdvertisingVO> res;
         public int AdListCount;
 
@@ -79,24 +81,27 @@ public class AdvertisingServiceImpl implements AdvertisingService{
     @Override
     public CountAdvertisingVO countAdvertisingList(CountAdvertisingVO countAdvertisingVO) {
 
-        CountAdvertisingVO advertisingVO = new CountAdvertisingVO();
+        try {
+            //  카테고리별 count 개수를 select 한다!
+            countAdvertisingVO.setCategory("All");
+            int allCount = advertisingMapper.categoryCount(countAdvertisingVO);
+            countAdvertisingVO.setCategory("Sports");
+            int sportsCount = advertisingMapper.categoryCount(countAdvertisingVO);
+            countAdvertisingVO.setCategory("Shopping");
+            int shopingCount = advertisingMapper.categoryCount(countAdvertisingVO);
+            countAdvertisingVO.setCategory("Book");
+            int bookCount = advertisingMapper.categoryCount(countAdvertisingVO);
 
-        //  카테고리별 count 개수를 select 한다!
-        countAdvertisingVO.setCategory("All");
-        int allCount = advertisingMapper.categoryCount(countAdvertisingVO);
-        countAdvertisingVO.setCategory("Sports");
-        int sportsCount = advertisingMapper.categoryCount(countAdvertisingVO);
-        countAdvertisingVO.setCategory("Shopping");
-        int shopingCount = advertisingMapper.categoryCount(countAdvertisingVO);
-        countAdvertisingVO.setCategory("Book");
-        int bookCount = advertisingMapper.categoryCount(countAdvertisingVO);
+            countAdvertisingVO.setAll_count(allCount);
+            countAdvertisingVO.setSports_count(sportsCount);
+            countAdvertisingVO.setShopping_count(shopingCount);
+            countAdvertisingVO.setBook_count(bookCount);
 
-        advertisingVO.setAll_count(allCount);
-        advertisingVO.setSports_count(sportsCount);
-        advertisingVO.setShopping_count(shopingCount);
-        advertisingVO.setBook_count(bookCount);
-
-        return advertisingVO;
+            return countAdvertisingVO;
+        }catch (Exception e){
+            new ExceptionUtils(countAdvertisingVO);
+            return countAdvertisingVO;
+        }
     }
 
     @Override
@@ -156,12 +161,5 @@ public class AdvertisingServiceImpl implements AdvertisingService{
         return res;
     }
 
-    @Override
-    public List<AdvertisingVO> getAd_no(AdvertisingVO advertisingVO) {
-
-        List<AdvertisingVO> res = advertisingMapper.getAd_no(advertisingVO);
-
-        return res;
-    }
 
 }

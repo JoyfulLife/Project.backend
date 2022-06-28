@@ -8,6 +8,7 @@ public class CountAdvertisingVO {
     private int shopping_count;
     private int book_count;
     private int cart_count;
+    private String message;
 
     public int getAll_count() {
         return all_count;
@@ -55,5 +56,13 @@ public class CountAdvertisingVO {
 
     public void setCart_count(int cart_count) {
         this.cart_count = cart_count;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

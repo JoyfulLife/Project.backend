@@ -58,7 +58,7 @@ public class CartServiceImpl implements CartService {
     }
 
     //getCartList 에서 list와 count 둘다 동시에 받아오기 위해서 만든 class
-    public class cartListAndCount {
+    public static class cartListAndCount {
 
         public List<CartVO> res;
         public int cartCount;

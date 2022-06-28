@@ -44,9 +44,18 @@ public class CartController {
     @RequestMapping(value = "/cart/cartList", method = RequestMethod.POST)
     @ResponseBody
     public CartServiceImpl.cartListAndCount getCartList(Locale locale, @RequestBody CartVO cartVO){
-        CartServiceImpl.cartListAndCount res = cartService.getCartList(cartVO);
 
-        return res;
+        CartServiceImpl.cartListAndCount res;
+
+        try {
+            res = cartService.getCartList(cartVO);
+
+            return res;
+        }catch (Exception e){
+            new ExceptionUtils(cartVO);
+
+            return new CartServiceImpl.cartListAndCount(cartVO.getFailMessage());
+        }
     }
 
     @RequestMapping(value = "/cart/deleteCartList", method = RequestMethod.POST)

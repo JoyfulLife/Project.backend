@@ -74,9 +74,17 @@ public class AdvertisingController {
     @ResponseBody
     public AdvertisingServiceImpl.MyAdrequestListAndCount getMyAdRequestList(Locale locale, @RequestBody AdvertisingVO advertisingVO) {
 
-        AdvertisingServiceImpl.MyAdrequestListAndCount res = advertisingService.selectMyAdRequestList(advertisingVO);
+        AdvertisingServiceImpl.MyAdrequestListAndCount res;
 
-        return res;
+        try{
+            res = advertisingService.selectMyAdRequestList(advertisingVO);
+
+            return res;
+        }catch (Exception e){
+            new ExceptionUtils(advertisingVO);
+
+            return new AdvertisingServiceImpl.MyAdrequestListAndCount(advertisingVO.getMessage());
+        }
     }
 
     @RequestMapping(value = "/advertising/deleteMyAdRequest", method = RequestMethod.POST)

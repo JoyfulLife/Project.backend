@@ -59,9 +59,15 @@ public class AdvertisingController {
     @ResponseBody
     public AdvertisingVO insertAdvertising(Locale locale, @RequestBody AdvertisingVO advertisingVO) {
 
-        advertisingService.insertAdvertising(advertisingVO);
+        try{
+            advertisingService.insertAdvertising(advertisingVO);
 
-        return advertisingVO;
+            return advertisingVO;
+        }catch (Exception e){
+            new ExceptionUtils(advertisingVO);
+
+            return advertisingVO;
+        }
     }
 
     @RequestMapping(value = "/advertising/myAdRequest", method = RequestMethod.POST)

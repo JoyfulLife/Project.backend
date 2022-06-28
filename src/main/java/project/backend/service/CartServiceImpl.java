@@ -45,11 +45,16 @@ public class CartServiceImpl implements CartService {
     @Override
     public cartListAndCount getCartList(CartVO cartVO) {
 
-        List<CartVO> res = cartMapper.getCartList(cartVO);
+        try{
+            List<CartVO> res = cartMapper.getCartList(cartVO);
+            int cartCount = cartMapper.cart_Count(cartVO);
 
-        int cartCount = cartMapper.cart_Count(cartVO);
+            return new cartListAndCount(res, cartCount);
+        }catch (Exception e){
+            new ExceptionUtils(cartVO);
 
-        return new cartListAndCount(res, cartCount);
+            return new cartListAndCount(cartVO.getFailMessage());
+        }
     }
 
     //getCartList 에서 list와 count 둘다 동시에 받아오기 위해서 만든 class
@@ -57,6 +62,13 @@ public class CartServiceImpl implements CartService {
 
         public List<CartVO> res;
         public int cartCount;
+        public String error;
+
+        public cartListAndCount() {}
+
+        public cartListAndCount(String error){
+            this.error = error;
+        }
 
         public cartListAndCount(List<CartVO> res, int cartCount) {
             this.res = res;

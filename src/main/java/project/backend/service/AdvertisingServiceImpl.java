@@ -130,7 +130,7 @@ public class AdvertisingServiceImpl implements AdvertisingService{
             return new MyAdrequestListAndCount(res , myAdCount);
         }catch (Exception e){
             new ExceptionUtils(advertisingVO);
-            return new MyAdrequestListAndCount(advertisingVO);
+            return new MyAdrequestListAndCount(advertisingVO.getMessage());
         }
     }
 
@@ -139,11 +139,11 @@ public class AdvertisingServiceImpl implements AdvertisingService{
 
         public List<AdvertisingVO> res;
         public int myAdCount;
-        public AdvertisingVO error;
+        public String error;
 
         public MyAdrequestListAndCount() {}
 
-        public MyAdrequestListAndCount(AdvertisingVO error) {
+        public MyAdrequestListAndCount(String error) {
             this.error = error;
         }
 

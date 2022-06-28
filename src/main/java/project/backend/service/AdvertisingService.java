@@ -2,7 +2,6 @@ package project.backend.service;
 
 import project.backend.vo.AdvertisingVO;
 import project.backend.vo.CountAdvertisingVO;
-import project.backend.vo.TableVO;
 
 import java.util.List;
 

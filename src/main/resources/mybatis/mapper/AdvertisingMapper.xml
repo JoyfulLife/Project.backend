@@ -83,7 +83,15 @@
         from project.advertising_m
         where
             USER_ID = #{user_id}
-
+            <if test="category != '' ">
+                and CATEGORY = #{category}
+            </if>
+            <if test="brand_name != '' ">
+                and BRAND_NAME = #{brand_name}
+            </if>
+            <if test="url != '' ">
+                and url = #{url}
+            </if>
     </select>
 
     <delete id="deleteMyAdRequestList">

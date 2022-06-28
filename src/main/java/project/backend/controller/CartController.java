@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import project.backend.service.CartService;
 import project.backend.service.CartServiceImpl;
+import project.backend.util.ExceptionUtils;
 import project.backend.vo.AdvertisingVO;
 import project.backend.vo.CartVO;
 import project.backend.vo.ClientVO;
@@ -29,9 +30,15 @@ public class CartController {
     @ResponseBody
     public AdvertisingVO insertCart(Locale locale, @RequestBody AdvertisingVO advertisingVO) {
 
-        cartService.insertCart(advertisingVO);
+        try {
+            cartService.insertCart(advertisingVO);
 
-        return advertisingVO;
+            return advertisingVO;
+        }catch (Exception e){
+            new ExceptionUtils(advertisingVO);
+
+            return advertisingVO;
+        }
     }
 
     @RequestMapping(value = "/cart/cartList", method = RequestMethod.POST)

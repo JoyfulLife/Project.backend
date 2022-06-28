@@ -24,12 +24,20 @@ public class ClientController{
 
     @RequestMapping(value = "/client/clientInfo", method = RequestMethod.POST)
     @ResponseBody
-    public ClientVO validclient(Locale locale, @RequestBody ClientVO ClientVO) {
+    public ClientVO validclient(Locale locale, @RequestBody ClientVO clientVO) {
 
         //로그인할때 등록된 인원인지 확인
-        ClientVO clientVO = clientService.selectValidClient(ClientVO);
+        ClientVO res = new ClientVO();
 
-        return clientVO;
+        try {
+            res = clientService.selectValidClient(clientVO);
+
+            return res;
+        }catch (Exception e){
+            new ExceptionUtils(clientVO);
+
+            return clientVO;
+        }
     }
 
     @RequestMapping(value = "/client/saveClient", method = RequestMethod.POST)

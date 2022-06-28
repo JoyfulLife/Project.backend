@@ -89,13 +89,19 @@ public class AdvertisingController {
 
     @RequestMapping(value = "/advertising/deleteMyAdRequest", method = RequestMethod.POST)
     @ResponseBody
-    public AdvertisingVO deleteMyAdRequestList(Locale locale, @RequestBody List<AdvertisingVO> advertisingVO){
+    public AdvertisingVO deleteMyAdRequestList(Locale locale, @RequestBody List<AdvertisingVO> advertisingVO , AdvertisingVO errorVO){
 
         AdvertisingVO res = new AdvertisingVO();
 
-        res = advertisingService.deleteMyAdRequestList(advertisingVO);
+        try {
+            res = advertisingService.deleteMyAdRequestList(advertisingVO);
 
-        return res;
+            return res;
+        }catch (Exception e){
+            new ExceptionUtils(errorVO);
+
+            return errorVO;
+        }
     }
 
 }

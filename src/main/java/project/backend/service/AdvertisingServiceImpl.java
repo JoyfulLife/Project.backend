@@ -64,12 +64,17 @@ public class AdvertisingServiceImpl implements AdvertisingService{
     }
 
     //selectAdvertisingListAndCount 에서 list와 count 둘다 동시에 받아오기 위해서 만든 class
-    public class selectAdvertisingListAndCount {
+    public static class selectAdvertisingListAndCount {
 
-//        public selectAdvertisingListAndCount() {}
+        public selectAdvertisingListAndCount() {}
 
         public List<AdvertisingVO> res;
         public int AdListCount;
+        public String error;
+
+        public selectAdvertisingListAndCount(String error) {
+            this.error = error;
+        }
 
         public selectAdvertisingListAndCount(List<AdvertisingVO> res, int AdListCount) {
             this.res = res;

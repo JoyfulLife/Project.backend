@@ -25,18 +25,17 @@ public class AdvertisingController {
     @ResponseBody
     public AdvertisingServiceImpl.selectAdvertisingListAndCount getAdvertisingList(Locale locale, @RequestBody AdvertisingVO advertisingVO) {
 
-        AdvertisingServiceImpl.selectAdvertisingListAndCount res = advertisingService.selectAdvertisingList(advertisingVO);
+        AdvertisingServiceImpl.selectAdvertisingListAndCount res;
 
-        return res;
-//        AdvertisingServiceImpl.selectAdvertisingListAndCount res = new AdvertisingServiceImpl.selectAdvertisingListAndCount();
-//        try{
-//            res = advertisingService.selectAdvertisingList(advertisingVO);
-//
-//            return res;
-//        }catch (Exception e){
-//            new ExceptionUtils(advertisingVO);
-//            return res;
-//        }
+        try{
+            res = advertisingService.selectAdvertisingList(advertisingVO);
+
+            return res;
+        }catch (Exception e){
+            new ExceptionUtils(advertisingVO);
+
+            return new AdvertisingServiceImpl.selectAdvertisingListAndCount(advertisingVO.getMessage());
+        }
     }
 
     @RequestMapping(value = "/advertising/countAdvertisingList", method = RequestMethod.GET)

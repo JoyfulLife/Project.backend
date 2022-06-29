@@ -14,7 +14,7 @@ public interface AdvertisingMapper {
 
     List<AdvertisingVO> selectAdvertisingList(AdvertisingVO advertisingVO);
 
-    List<AdvertisingVO> seledctAdminList(AdvertisingVO advertisingVO);
+    List<AdvertisingVO> selectAdminList(AdvertisingVO advertisingVO);
 
     int categoryCount(CountAdvertisingVO countAdvertisingVO);
 

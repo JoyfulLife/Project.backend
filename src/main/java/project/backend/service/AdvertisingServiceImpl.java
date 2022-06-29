@@ -49,7 +49,7 @@ public class AdvertisingServiceImpl implements AdvertisingService{
                 }
 
                 // admin이 AD list를 받을때 (승인을 결정을 위해 받아오는 list)
-                res = advertisingMapper.seledctAdminList(advertisingVO);
+                res = advertisingMapper.selectAdminList(advertisingVO);
 
             }
             int AdListCount = advertisingMapper.AdCount(advertisingVO);

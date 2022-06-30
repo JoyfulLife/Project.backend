@@ -32,12 +32,15 @@
         );
     </insert>
 
-    <select id="getCartList" resultType="project.backend.vo.AdvertisingVO">
+    <select id="getCartList" resultType="project.backend.vo.CartVO">
         select *
         from project.cart_m
         where
             PROJECT_CD = 'P2022' AND
             USER_ID = #{user_id}
+            <if test="ad_no != '' ">
+                and AD_NO = #{ad_no}
+            </if>
             <if test="category != '' ">
                 and CATEGORY = #{category}
             </if>
@@ -45,7 +48,7 @@
                 and BRAND_NAME = #{brand_name}
             </if>
             <if test="url != '' ">
-                and url = #{url}
+                and URL = #{url}
             </if>
         limit #{limit_st}, #{limit}
     </select>
@@ -56,6 +59,9 @@
         where
         PROJECT_CD = 'P2022' AND
         USER_ID = #{user_id}
+        <if test="ad_no != '' ">
+            and AD_NO = #{ad_no}
+        </if>
         <if test="category != '' ">
             and CATEGORY = #{category}
         </if>
@@ -63,7 +69,7 @@
             and BRAND_NAME = #{brand_name}
         </if>
         <if test="url != '' ">
-            and url = #{url}
+            and URL = #{url}
         </if>
     </select>
 
@@ -86,7 +92,7 @@
 
     <select id="deleteCartListCount" resultType="_int">
         select count(*)
-        from project.cart_m
+        from project.cart_m1
         where
         PROJECT_CD = 'P2022' AND
         USER_ID in (

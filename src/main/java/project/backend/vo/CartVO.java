@@ -9,6 +9,7 @@ public class CartVO {
 
 
     private String user_id;
+    private String ad_no;
     private String category;
     private String brand_name;
     private String url;
@@ -95,4 +96,11 @@ public class CartVO {
         SuccessMessage = successMessage;
     }
 
+    public String getAd_no() {
+        return ad_no;
+    }
+
+    public void setAd_no(String ad_no) {
+        this.ad_no = ad_no;
+    }
 }
